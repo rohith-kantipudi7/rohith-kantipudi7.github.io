@@ -18,19 +18,19 @@
   --gridline: #e8eaee;
   --axis: #d4d7dd;
 
-  /* Brand & series */
-  --accent: #2a78d6;
-  --accent-2: #6250d6;
-  --series-bar: #2a78d6;
-  --series-bar-hover: #5598e7;
+  /* Brand & series — emerald / teal */
+  --accent: #0e8a68;
+  --accent-2: #0d7377;
+  --series-bar: #1baf7a;
+  --series-bar-hover: #3ec695;
   --series-avg: #eb6834;
   --good: #006300;
   --danger: #d03b3b;
 
-  --grad: linear-gradient(135deg, #2a78d6, #6250d6);
+  --grad: linear-gradient(135deg, #109c74, #0d7377);
   --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.04), 0 6px 20px rgba(15, 23, 42, 0.06);
   --shadow-pop: 0 4px 10px rgba(15, 23, 42, 0.10), 0 16px 40px rgba(15, 23, 42, 0.14);
-  --header-h: 58px;
+  --header-h: 60px;
 
   --radius: 16px;
   --radius-sm: 10px;
@@ -50,11 +50,13 @@
   --border: rgba(255, 255, 255, 0.10);
   --gridline: #2c2c2a;
   --axis: #383835;
-  --accent: #3987e5;
-  --series-bar: #3987e5;
-  --series-bar-hover: #6da7ec;
+  --accent: #2ebd8c;
+  --accent-2: #27a5aa;
+  --series-bar: #199e70;
+  --series-bar-hover: #22b381;
   --series-avg: #d95926;
   --good: #0ca30c;
+  --grad: linear-gradient(135deg, #1db584, #17949a);
   --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.45);
   --shadow-pop: 0 4px 10px rgba(0, 0, 0, 0.5), 0 16px 40px rgba(0, 0, 0, 0.55);
 }
@@ -112,41 +114,42 @@ a { color: var(--accent); }
 
 .site-header {
   position: sticky; top: 0; z-index: 50;
-  background: color-mix(in srgb, var(--page) 78%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: var(--surface);
   border-bottom: 1px solid var(--border);
 }
 
+.site-header .container { width: 100%; max-width: none; padding-inline: clamp(0.75rem, 2vw, 1.5rem); margin: 0; }
+
 .header-inner {
-  display: flex; align-items: center; gap: 1.5rem;
-  padding-block: 0.7rem;
+  display: flex; align-items: center; gap: 0.75rem;
+  height: var(--header-h);
 }
 
 .brand {
-  display: inline-flex; align-items: center; gap: 0.6rem;
+  display: inline-flex; align-items: center;
   text-decoration: none; color: var(--text-primary);
-  font-weight: 700; font-size: 1.05rem; letter-spacing: -0.01em;
+  font-weight: 750; font-size: 1.1rem; letter-spacing: -0.02em;
 }
-.brand-mark { flex: none; border-radius: 8px; }
-.brand-accent { color: var(--accent); }
+.brand:hover { color: var(--accent); }
 
-.site-nav { display: flex; gap: 1.1rem; margin-left: auto; }
+.site-nav { display: flex; gap: 0.25rem; margin-left: auto; }
 .site-nav a {
   color: var(--text-secondary); text-decoration: none;
-  font-size: 0.92rem; font-weight: 500;
-  padding: 0.3rem 0.1rem;
+  font-size: 0.93rem; font-weight: 500;
+  padding: 0.45rem 0.8rem; border-radius: 8px;
+  transition: color 0.15s ease, background 0.15s ease;
 }
-.site-nav a:hover { color: var(--text-primary); }
+.site-nav a:hover { color: var(--text-primary); background: var(--surface-2); }
 
 .theme-toggle {
   display: inline-grid; place-items: center;
+  flex: none;
   width: 38px; height: 38px;
-  border: 1px solid var(--border); border-radius: 50%;
-  background: var(--surface); color: var(--text-secondary);
-  cursor: pointer; transition: transform 0.15s ease, color 0.15s ease;
+  border: none; border-radius: 10px;
+  background: transparent; color: var(--text-secondary);
+  cursor: pointer; transition: background 0.15s ease, color 0.15s ease;
 }
-.theme-toggle:hover { color: var(--text-primary); transform: rotate(15deg); }
+.theme-toggle:hover { color: var(--text-primary); background: var(--surface-2); }
 .icon-moon { display: none; }
 :root[data-theme="dark"] .icon-sun { display: none; }
 :root[data-theme="dark"] .icon-moon { display: block; }
@@ -159,20 +162,25 @@ a { color: var(--accent); }
 
 /* ============ Shell: sidebar + content ============ */
 
-.container-wide {
-  width: min(1480px, 100% - 1.5rem);
-  margin-inline: auto;
-}
-
-.shell {
+/* The shell is full-bleed: sidebar flush with the left edge, content centered
+   in the remaining space. */
+.shell.container-wide, .shell {
+  width: 100%;
+  margin: 0;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  gap: 1.75rem;
-  align-items: start;
-  transition: gap 0.25s ease;
+  gap: 0;
+  align-items: stretch;
+  min-height: calc(100vh - var(--header-h));
 }
 
-.content { min-width: 0; padding-bottom: 2rem; }
+.content {
+  min-width: 0;
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding: 0 clamp(1.25rem, 3.5vw, 3rem) 2.5rem;
+}
 .content > h1 {
   margin-top: 1.75rem;
   font-size: clamp(1.6rem, 4vw, 2.2rem);
@@ -192,22 +200,24 @@ a { color: var(--accent); }
 .content section:not(.section):not(.hero) li strong { color: var(--text-primary); }
 
 .sidebar {
-  position: sticky;
-  top: var(--header-h);
-  align-self: start;
-  width: 256px;
-  max-height: calc(100vh - var(--header-h));
-  overflow-y: auto;
+  width: 264px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 1.1rem 0.85rem 2.5rem;
   overflow-x: hidden;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  margin-top: 1.25rem;
-  padding: 0.75rem;
-  scrollbar-width: thin;
   transition: width 0.25s ease, opacity 0.2s ease, padding 0.25s ease,
-              margin 0.25s ease, border-width 0.25s ease;
+              border-width 0.25s ease;
 }
+/* the inner nav is what sticks and scrolls; the panel itself runs full height */
+.sidebar nav {
+  position: sticky;
+  top: calc(var(--header-h) + 1.1rem);
+  width: 238px; /* fixed so links don't reflow during the width animation */
+  max-height: calc(100vh - var(--header-h) - 2rem);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.sidebar nav::-webkit-scrollbar { display: none; }
 
 /* Desktop collapse (toggled by the header button, persisted) */
 @media (min-width: 1024px) {
@@ -216,13 +226,10 @@ a { color: var(--accent); }
     padding-left: 0;
     padding-right: 0;
     opacity: 0;
-    border-left-width: 0;
     border-right-width: 0;
     pointer-events: none;
   }
-  html.sidebar-collapsed .shell { gap: 0; }
 }
-.sidebar nav { width: 224px; } /* keeps links from reflowing during the width animation */
 
 .sidebar-group {
   margin: 0.9rem 0.55rem 0.3rem;
@@ -259,8 +266,8 @@ a { color: var(--accent); }
   place-items: center;
   flex: none;
   width: 38px; height: 38px;
-  border: 1px solid var(--border); border-radius: var(--radius-sm);
-  background: var(--surface); color: var(--text-secondary);
+  border: none; border-radius: 10px;
+  background: transparent; color: var(--text-secondary);
   cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease;
 }
@@ -273,22 +280,27 @@ a { color: var(--accent); }
 
 /* Mobile / tablet: the sidebar becomes an overlay drawer */
 @media (max-width: 1023px) {
-  .shell { grid-template-columns: 1fr; gap: 0; }
+  .shell { grid-template-columns: 1fr; }
   .sidebar {
     position: fixed;
     z-index: 80;
     top: 0; left: 0; bottom: 0;
     width: min(300px, 86vw);
-    max-height: none;
     margin: 0;
     padding-top: 1rem;
+    overflow-y: auto;
     background: var(--surface);
     border: none;
     border-right: 1px solid var(--border);
-    border-radius: 0;
     transform: translateX(-105%);
     transition: transform 0.24s ease;
     opacity: 1;
+  }
+  .sidebar nav {
+    position: static;
+    width: auto;
+    max-height: none;
+    overflow: visible;
   }
   body.drawer-open .sidebar { transform: none; box-shadow: var(--shadow-pop); }
   body.drawer-open { overflow: hidden; }

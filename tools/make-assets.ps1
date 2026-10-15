@@ -23,8 +23,8 @@ function Draw-Icon([int]$size, [string]$outFile, [bool]$maskable) {
     $g = [System.Drawing.Graphics]::FromImage($bmp)
     $g.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
 
-    $c1 = [System.Drawing.Color]::FromArgb(0x2a, 0x78, 0xd6)
-    $c2 = [System.Drawing.Color]::FromArgb(0x62, 0x50, 0xd6)
+    $c1 = [System.Drawing.Color]::FromArgb(0x10, 0x9c, 0x74)
+    $c2 = [System.Drawing.Color]::FromArgb(0x0d, 0x73, 0x77)
     $grad = New-Object System.Drawing.Drawing2D.LinearGradientBrush(
         (New-Object System.Drawing.Point(0, 0)),
         (New-Object System.Drawing.Point($size, $size)), $c1, $c2)
@@ -77,14 +77,14 @@ $g.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
 $g.TextRenderingHint = [System.Drawing.Text.TextRenderingHint]::AntiAliasGridFit
 
 # background: deep navy gradient
-$bg1 = [System.Drawing.Color]::FromArgb(0x0e, 0x16, 0x2b)
-$bg2 = [System.Drawing.Color]::FromArgb(0x1b, 0x12, 0x3d)
+$bg1 = [System.Drawing.Color]::FromArgb(0x07, 0x1d, 0x1a)
+$bg2 = [System.Drawing.Color]::FromArgb(0x0b, 0x2e, 0x2e)
 $bgBrush = New-Object System.Drawing.Drawing2D.LinearGradientBrush(
     (New-Object System.Drawing.Point(0, 0)), (New-Object System.Drawing.Point($w, $h)), $bg1, $bg2)
 $g.FillRectangle($bgBrush, 0, 0, $w, $h)
 
 # decorative bars on the right with average line
-$barBrush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(90, 0x39, 0x87, 0xe5))
+$barBrush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(90, 0x1b, 0xaf, 0x7a))
 $barX = 820; $bw2 = 70; $gap = 30
 $heights = @(180, 260, 340, 300, 420)
 for ($i = 0; $i -lt $heights.Count; $i++) {
@@ -101,7 +101,7 @@ $g.DrawLine($avgPen, 800, 330, 1180, 330)
 $chip = New-RoundedRectPath 80 90 96 96 24
 $chipBrush = New-Object System.Drawing.Drawing2D.LinearGradientBrush(
     (New-Object System.Drawing.Point(80, 90)), (New-Object System.Drawing.Point(176, 186)),
-    [System.Drawing.Color]::FromArgb(0x2a, 0x78, 0xd6), [System.Drawing.Color]::FromArgb(0x62, 0x50, 0xd6))
+    [System.Drawing.Color]::FromArgb(0x10, 0x9c, 0x74), [System.Drawing.Color]::FromArgb(0x0d, 0x73, 0x77))
 $g.FillPath($chipBrush, $chip)
 $u2 = 96 / 32.0
 foreach ($bar in @(@(7, 17, 8), @(14, 12, 13), @(21, 7, 18))) {
@@ -117,8 +117,8 @@ $titleFont = New-Object System.Drawing.Font('Segoe UI', 58, [System.Drawing.Font
 $subFont = New-Object System.Drawing.Font('Segoe UI', 26, [System.Drawing.FontStyle]::Regular)
 $urlFont = New-Object System.Drawing.Font('Segoe UI', 20, [System.Drawing.FontStyle]::Regular)
 $white = [System.Drawing.Brushes]::White
-$grayBrush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(0xb9, 0xc2, 0xd6))
-$accentBrush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(0x6f, 0xa8, 0xef))
+$grayBrush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(0xb9, 0xd2, 0xcc))
+$accentBrush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(0x4e, 0xc9, 0xa4))
 
 $g.DrawString('Stock Average', $titleFont, $white, 70, 240)
 $g.DrawString('Calculator', $titleFont, $white, 70, 330)

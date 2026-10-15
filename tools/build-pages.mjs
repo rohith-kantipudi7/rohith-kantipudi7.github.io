@@ -56,16 +56,6 @@ ${groups}
 
 /* ---------------- shared fragments ---------------- */
 
-const BRAND_SVG = `<svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false">
-          <defs><linearGradient id="bg-grad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#2a78d6"/><stop offset="1" stop-color="#6250d6"/>
-          </linearGradient></defs>
-          <rect width="32" height="32" rx="8" fill="url(#bg-grad)"/>
-          <rect x="7"  y="17" width="4" height="8" rx="1.5" fill="#fff"/>
-          <rect x="14" y="12" width="4" height="13" rx="1.5" fill="#fff"/>
-          <rect x="21" y="7"  width="4" height="18" rx="1.5" fill="#fff"/>
-          <path d="M5 15 L27 15" stroke="#ffb340" stroke-width="2" stroke-linecap="round"/>
-        </svg>`;
 
 const THEME_TOGGLE = `<button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch theme">
         <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.5v2.5M12 19v2.5M2.5 12h2.5M19 12h2.5M5 5l1.8 1.8M17.2 17.2L19 19M19 5l-1.8 1.8M6.8 17.2L5 19"/></g></svg>
@@ -181,10 +171,7 @@ ${jsonLd(page)}
   <header class="site-header">
     <div class="container header-inner">
       ${NAV_TOGGLE}
-      <a class="brand" href="./" aria-label="Stock Average Calculator — home">
-        ${BRAND_SVG}
-        <span class="brand-name">Stock&nbsp;Average<span class="brand-accent">Calc</span></span>
-      </a>
+      <a class="brand" href="./" aria-label="Stock Average Calculator — home">StockCalc</a>
       <nav class="site-nav" aria-label="Main">
         <a href="./">Home</a>
         <a href="./books.html">Books</a>
