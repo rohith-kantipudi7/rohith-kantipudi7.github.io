@@ -72,7 +72,7 @@ const THEME_TOGGLE = `<button id="theme-toggle" class="theme-toggle" type="butto
         <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z" fill="currentColor"/></svg>
       </button>`;
 
-const NAV_TOGGLE = `<button id="nav-toggle" class="nav-toggle" type="button" aria-label="Open tools menu" aria-expanded="false" aria-controls="sidebar">
+const NAV_TOGGLE = `<button id="nav-toggle" class="nav-toggle" type="button" aria-label="Toggle tools menu" aria-expanded="true" aria-controls="sidebar">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
       </button>`;
 
@@ -154,7 +154,7 @@ function render(page) {
   <meta name="twitter:title" content="${page.title}">
   <meta name="twitter:description" content="${page.description}">
   <meta name="twitter:image" content="${SITE}assets/og-image.png">
-  <meta name="theme-color" content="#f6f7fa">
+  <meta name="theme-color" content="#ffffff">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="./assets/icon-32.png" sizes="32x32" type="image/png">
@@ -165,6 +165,9 @@ function render(page) {
       try {
         var t = localStorage.getItem('sac-theme');
         if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        if (localStorage.getItem('sac-sidebar') === 'closed') {
+          document.documentElement.classList.add('sidebar-collapsed');
+        }
       } catch (e) {}
     })();
   </script>

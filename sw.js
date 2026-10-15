@@ -1,5 +1,5 @@
 /* Service worker: cache-first for the app shell so it works offline. */
-var CACHE = 'sac-v4';
+var CACHE = 'sac-v5';
 var ASSETS = [
   './',
   './index.html',

@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="CAGR Calculator — Compound Annual Growth Rate (Free)">
   <meta name="twitter:description" content="Free CAGR calculator. Enter the starting value, final value, and years to get the compound annual growth rate and total growth of your investment.">
   <meta name="twitter:image" content="https://rohith-kantipudi7.github.io/Stock-Calculator/assets/og-image.png">
-  <meta name="theme-color" content="#f6f7fa">
+  <meta name="theme-color" content="#ffffff">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="./assets/icon-32.png" sizes="32x32" type="image/png">
@@ -30,6 +30,9 @@
       try {
         var t = localStorage.getItem('sac-theme');
         if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        if (localStorage.getItem('sac-sidebar') === 'closed') {
+          document.documentElement.classList.add('sidebar-collapsed');
+        }
       } catch (e) {}
     })();
   </script>
@@ -89,7 +92,7 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Open tools menu" aria-expanded="false" aria-controls="sidebar">
+      <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Toggle tools menu" aria-expanded="true" aria-controls="sidebar">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
       </button>
       <a class="brand" href="./" aria-label="Stock Average Calculator — home">

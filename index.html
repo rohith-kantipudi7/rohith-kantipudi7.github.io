@@ -31,7 +31,7 @@
   <meta name="twitter:image" content="https://rohith-kantipudi7.github.io/Stock-Calculator/assets/og-image.png">
 
   <!-- PWA / icons -->
-  <meta name="theme-color" content="#f6f7fa">
+  <meta name="theme-color" content="#ffffff">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="./assets/icon-32.png" sizes="32x32" type="image/png">
@@ -39,12 +39,15 @@
 
   <link rel="stylesheet" href="./css/style.css">
 
-  <!-- Set theme before first paint to avoid a flash -->
+  <!-- Restore theme and sidebar state before first paint to avoid a flash -->
   <script>
     (function () {
       try {
         var t = localStorage.getItem('sac-theme');
         if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        if (localStorage.getItem('sac-sidebar') === 'closed') {
+          document.documentElement.classList.add('sidebar-collapsed');
+        }
       } catch (e) { /* storage unavailable */ }
     })();
   </script>
@@ -183,7 +186,7 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Open tools menu" aria-expanded="false" aria-controls="sidebar">
+      <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Toggle tools menu" aria-expanded="true" aria-controls="sidebar">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
       </button>
       <a class="brand" href="./" aria-label="Stock Average Calculator — home">
@@ -253,7 +256,6 @@
     <!-- ============ HERO ============ -->
     <section class="hero">
       <div class="container">
-        <p class="hero-eyebrow">Free · Private · Works offline</p>
         <h1>Stock Average Calculator</h1>
         <p class="hero-sub">
           Add every buy, get your <strong>weighted average share price</strong> instantly —

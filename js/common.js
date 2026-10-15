@@ -16,52 +16,56 @@
     });
   }
 
-  /* ---------- sidebar drawer (mobile) ---------- */
+  /* ---------- sidebar: collapsible on desktop, drawer on mobile ----------
+     Desktop (>=1024px): open by default, the header button collapses or
+     expands it and the choice is persisted. Mobile: overlay drawer, closed
+     by default, with scrim / Escape / link-click to dismiss. */
   var navToggle = document.getElementById('nav-toggle');
   var sidebar = document.getElementById('sidebar');
   var scrim = document.getElementById('scrim');
+  var mqDesktop = window.matchMedia('(min-width: 1024px)');
+
+  function sidebarOpen() {
+    return mqDesktop.matches
+      ? !document.documentElement.classList.contains('sidebar-collapsed')
+      : document.body.classList.contains('drawer-open');
+  }
+
+  function syncToggle() {
+    if (navToggle) navToggle.setAttribute('aria-expanded', String(sidebarOpen()));
+  }
 
   function setDrawer(open) {
     document.body.classList.toggle('drawer-open', open);
-    if (navToggle) navToggle.setAttribute('aria-expanded', String(open));
     if (scrim) scrim.hidden = !open;
+    syncToggle();
   }
 
   if (navToggle && sidebar) {
     navToggle.addEventListener('click', function () {
-      setDrawer(!document.body.classList.contains('drawer-open'));
+      if (mqDesktop.matches) {
+        var collapsed = document.documentElement.classList.toggle('sidebar-collapsed');
+        try { localStorage.setItem('sac-sidebar', collapsed ? 'closed' : 'open'); } catch (e) {}
+        syncToggle();
+      } else {
+        setDrawer(!document.body.classList.contains('drawer-open'));
+      }
     });
     if (scrim) scrim.addEventListener('click', function () { setDrawer(false); });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') setDrawer(false);
+      if (e.key === 'Escape' && !mqDesktop.matches) setDrawer(false);
     });
     sidebar.addEventListener('click', function (e) {
-      if (e.target.closest('a')) setDrawer(false);
+      if (e.target.closest('a') && !mqDesktop.matches) setDrawer(false);
     });
+    var onBreakpoint = function () { setDrawer(false); };
+    if (mqDesktop.addEventListener) mqDesktop.addEventListener('change', onBreakpoint);
+    syncToggle();
   }
 
   /* ---------- footer year ---------- */
   var y = String(new Date().getFullYear());
   document.querySelectorAll('.year, #year').forEach(function (n) { n.textContent = y; });
-
-  /* ---------- reveal on scroll ---------- */
-  var revealEls = document.querySelectorAll('.reveal');
-  if (revealEls.length) {
-    if ('IntersectionObserver' in window &&
-        !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in');
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.08 });
-      revealEls.forEach(function (n) { io.observe(n); });
-    } else {
-      revealEls.forEach(function (n) { n.classList.add('in'); });
-    }
-  }
 
   /* ---------- service worker ---------- */
   if ('serviceWorker' in navigator) {
