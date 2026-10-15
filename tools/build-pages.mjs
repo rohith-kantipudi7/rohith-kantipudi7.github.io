@@ -6,7 +6,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const SITE = 'https://rohith-kantipudi7.github.io/Stock-Calculator/';
+const SITE = 'https://rohith-kantipudi7.github.io/';
 
 /* ---------------- sidebar (single source of truth) ---------------- */
 
@@ -742,7 +742,7 @@ const PAGES = [
     needsCalcJs: false,
     body: `      <div class="card">
         <h2>Ways to help</h2>
-        <p><a class="btn btn-primary" href="https://github.com/rohith-kantipudi7/Stock-Calculator" rel="noopener">⭐ Star the project on GitHub</a></p>
+        <p><a class="btn btn-primary" href="https://github.com/rohith-kantipudi7/rohith-kantipudi7.github.io" rel="noopener">⭐ Star the project on GitHub</a></p>
         <p>A star helps other investors find these tools — it costs nothing and takes two seconds.</p>
         <!-- Buy Me a Coffee: create an account at buymeacoffee.com, then replace USERNAME
              below and remove the surrounding comment markers.
@@ -763,7 +763,7 @@ const PAGES = [
     needsCalcJs: false,
     body: `      <div class="card">
         <h2>Get in touch</h2>
-        <p><a class="btn btn-primary" href="https://github.com/rohith-kantipudi7/Stock-Calculator/issues/new" rel="noopener">Open an issue on GitHub</a></p>
+        <p><a class="btn btn-primary" href="https://github.com/rohith-kantipudi7/rohith-kantipudi7.github.io/issues/new" rel="noopener">Open an issue on GitHub</a></p>
         <p>The fastest way to report a bug or request a calculator — no account email needed beyond GitHub, and the conversation stays public so others benefit.</p>
         <!-- Prefer email? Add your address here:
         <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>

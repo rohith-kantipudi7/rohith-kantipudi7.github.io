@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rohith-kantipudi7.github.io/Stock-Calculator/sitemap.xml
+Sitemap: https://rohith-kantipudi7.github.io/sitemap.xml

@@ -124,7 +124,7 @@ $g.DrawString('Stock Average', $titleFont, $white, 70, 240)
 $g.DrawString('Calculator', $titleFont, $white, 70, 330)
 $dash = [string][char]0x2014
 $g.DrawString("Average your share price in seconds $dash free, private, offline.", $subFont, $grayBrush, 76, 452)
-$g.DrawString('rohith-kantipudi7.github.io/Stock-Calculator', $urlFont, $accentBrush, 78, 540)
+$g.DrawString('rohith-kantipudi7.github.io', $urlFont, $accentBrush, 78, 540)
 
 $g.Dispose()
 $bmp.Save((Join-Path $assets 'og-image.png'), [System.Drawing.Imaging.ImageFormat]::Png)

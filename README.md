@@ -3,7 +3,7 @@
 A fast, modern **stock average calculator** — add unlimited buys and get your weighted average
 share price instantly, with an averaging-down planner and a visual breakdown chart.
 
-**Live site:** https://rohith-kantipudi7.github.io/Stock-Calculator/
+**Live site:** https://rohith-kantipudi7.github.io/
 
 ## Features
 
