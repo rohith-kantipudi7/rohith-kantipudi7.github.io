@@ -252,10 +252,10 @@ const PAGES = [
     body: `      <div class="card calc-card" id="pl">
         <div class="card-head"><h2>Trade details</h2>${currencySelect('pl-cur')}</div>
         <div class="calc-grid">
-          ${field('pl-qty', 'Quantity (shares)', 'e.g. 100', ' value="100"')}
-          ${field('pl-buy', 'Buy price / share', 'e.g. 250', ' value="250"')}
-          ${field('pl-sell', 'Sell price / share', 'e.g. 290', ' value="290"')}
-          ${field('pl-charges', 'Total charges (optional)', 'brokerage, taxes…', ' value="120"')}
+          ${field('pl-qty', 'Quantity (shares)', 'e.g. 100')}
+          ${field('pl-buy', 'Buy price / share', 'e.g. 250')}
+          ${field('pl-sell', 'Sell price / share', 'e.g. 290')}
+          ${field('pl-charges', 'Total charges (optional)', 'brokerage, taxes…')}
         </div>
         <div class="calc-results" aria-live="polite">
           ${tile('pl-invested', 'Invested')}
@@ -280,9 +280,9 @@ const PAGES = [
     body: `      <div class="card calc-card" id="sip">
         <div class="card-head"><h2>SIP details</h2>${currencySelect('sip-cur')}</div>
         <div class="calc-grid">
-          ${field('sip-amount', 'Monthly investment', 'e.g. 10000', ' value="10000" data-echo=\"1\"')}
-          ${field('sip-rate', 'Expected return (% p.a.)', 'e.g. 12', ' value="12"')}
-          ${field('sip-years', 'Duration (years)', 'e.g. 10', ' value="10"')}
+          ${field('sip-amount', 'Monthly investment', 'e.g. 10000', ' data-echo="1"')}
+          ${field('sip-rate', 'Expected return (% p.a.)', 'e.g. 12')}
+          ${field('sip-years', 'Duration (years)', 'e.g. 10')}
         </div>
         <div class="calc-results" aria-live="polite">
           ${tile('sip-invested', 'Total invested')}
@@ -306,9 +306,9 @@ const PAGES = [
     body: `      <div class="card calc-card" id="ls">
         <div class="card-head"><h2>Investment details</h2>${currencySelect('ls-cur')}</div>
         <div class="calc-grid">
-          ${field('ls-amount', 'Investment amount', 'e.g. 100000', ' value="100000" data-echo=\"1\"')}
-          ${field('ls-rate', 'Expected return (% p.a.)', 'e.g. 12', ' value="12"')}
-          ${field('ls-years', 'Duration (years)', 'e.g. 10', ' value="10"')}
+          ${field('ls-amount', 'Investment amount', 'e.g. 100000', ' data-echo="1"')}
+          ${field('ls-rate', 'Expected return (% p.a.)', 'e.g. 12')}
+          ${field('ls-years', 'Duration (years)', 'e.g. 10')}
         </div>
         <div class="calc-results" aria-live="polite">
           ${tile('ls-value', 'Estimated value')}
@@ -331,10 +331,10 @@ const PAGES = [
     body: `      <div class="card calc-card" id="swp">
         <div class="card-head"><h2>Withdrawal plan</h2>${currencySelect('swp-cur')}</div>
         <div class="calc-grid">
-          ${field('swp-corpus', 'Starting corpus', 'e.g. 5000000', ' value="5000000" data-echo=\"1\"')}
-          ${field('swp-withdraw', 'Monthly withdrawal', 'e.g. 30000', ' value="30000" data-echo=\"1\"')}
-          ${field('swp-rate', 'Expected return (% p.a.)', 'e.g. 8', ' value="8"')}
-          ${field('swp-years', 'Period (years)', 'e.g. 20', ' value="20"')}
+          ${field('swp-corpus', 'Starting corpus', 'e.g. 5000000', ' data-echo="1"')}
+          ${field('swp-withdraw', 'Monthly withdrawal', 'e.g. 30000', ' data-echo="1"')}
+          ${field('swp-rate', 'Expected return (% p.a.)', 'e.g. 8')}
+          ${field('swp-years', 'Period (years)', 'e.g. 20')}
         </div>
         <div class="calc-results" aria-live="polite">
           ${tile('swp-total', 'Total withdrawn')}
@@ -362,9 +362,9 @@ const PAGES = [
     body: `      <div class="card calc-card" id="emi">
         <div class="card-head"><h2>Loan details</h2>${currencySelect('emi-cur')}</div>
         <div class="calc-grid">
-          ${field('emi-amount', 'Loan amount', 'e.g. 2500000', ' value="2500000" data-echo=\"1\"')}
-          ${field('emi-rate', 'Interest rate (% p.a.)', 'e.g. 8.5', ' value="8.5"')}
-          ${field('emi-years', 'Tenure (years)', 'e.g. 20', ' value="20"')}
+          ${field('emi-amount', 'Loan amount', 'e.g. 2500000', ' data-echo="1"')}
+          ${field('emi-rate', 'Interest rate (% p.a.)', 'e.g. 8.5')}
+          ${field('emi-years', 'Tenure (years)', 'e.g. 20')}
         </div>
         <div class="calc-results" aria-live="polite">
           ${tile('emi-monthly', 'Monthly EMI')}
@@ -387,9 +387,9 @@ const PAGES = [
     body: `      <div class="card calc-card" id="cagr">
         <div class="card-head"><h2>Investment values</h2></div>
         <div class="calc-grid">
-          ${field('cagr-initial', 'Starting value', 'e.g. 100000', ' value="100000" data-echo=\"1\"')}
-          ${field('cagr-final', 'Final value', 'e.g. 250000', ' value="250000" data-echo=\"1\"')}
-          ${field('cagr-years', 'Duration (years)', 'e.g. 7', ' value="7"')}
+          ${field('cagr-initial', 'Starting value', 'e.g. 100000', ' data-echo="1"')}
+          ${field('cagr-final', 'Final value', 'e.g. 250000', ' data-echo="1"')}
+          ${field('cagr-years', 'Duration (years)', 'e.g. 7')}
         </div>
         <div class="calc-results" aria-live="polite">
           ${tile('cagr-rate', 'CAGR')}
@@ -411,15 +411,15 @@ const PAGES = [
     body: `      <div class="card calc-card" id="pct">
         <h2 class="visually-hidden">Percentage tools</h2>
         <div class="pct-row">
-          <p class="pct-q">What is ${'<input id="p1-a" class="inline-num" type="number" step="any" inputmode="decimal" aria-label="Percentage" value="15">'}% of ${'<input id="p1-b" class="inline-num" type="number" step="any" inputmode="decimal" aria-label="Number" value="2400">'}?</p>
+          <p class="pct-q">What is ${'<input id="p1-a" class="inline-num" type="number" step="any" inputmode="decimal" aria-label="Percentage">'}% of ${'<input id="p1-b" class="inline-num" type="number" step="any" inputmode="decimal" aria-label="Number">'}?</p>
           <p class="pct-a" id="p1-out" aria-live="polite">—</p>
         </div>
         <div class="pct-row">
-          <p class="pct-q">${'<input id="p2-a" class="inline-num" type="number" step="any" inputmode="decimal" aria-label="Part" value="45">'} is what % of ${'<input id="p2-b" class="inline-num" type="number" step="any" inputmode="decimal" aria-label="Whole" value="180">'}?</p>
+          <p class="pct-q">${'<input id="p2-a" class="inline-num" type="number" step="any" inputmode="decimal" aria-label="Part">'} is what % of ${'<input id="p2-b" class="inline-num" type="number" step="any" inputmode="decimal" aria-label="Whole">'}?</p>
           <p class="pct-a" id="p2-out" aria-live="polite">—</p>
         </div>
         <div class="pct-row">
-          <p class="pct-q">Change from ${'<input id="p3-a" class="inline-num" type="number" step="any" inputmode="decimal" aria-label="Old value" value="120">'} to ${'<input id="p3-b" class="inline-num" type="number" step="any" inputmode="decimal" aria-label="New value" value="90">'}?</p>
+          <p class="pct-q">Change from ${'<input id="p3-a" class="inline-num" type="number" step="any" inputmode="decimal" aria-label="Old value">'} to ${'<input id="p3-b" class="inline-num" type="number" step="any" inputmode="decimal" aria-label="New value">'}?</p>
           <p class="pct-a" id="p3-out" aria-live="polite">—</p>
         </div>
       </div>
@@ -428,7 +428,7 @@ const PAGES = [
         <p>Losses and gains are not symmetric: a 50% loss needs a 100% gain to break even.</p>
       </section>`,
     faqs: [
-      ['How do I calculate a percentage increase?', 'Subtract the old value from the new value, divide by the old value, and multiply by 100. For example, from 80 to 100: (100 − 80) ÷ 80 × 100 = 25%.'],
+      ['How do I calculate a percentage increase?', 'Use the third row of this calculator — enter the old value and the new value, and it shows the increase or decrease instantly.'],
     ],
   },
 
@@ -441,8 +441,8 @@ const PAGES = [
     intro: 'Estimate how fast money doubles: enter a return rate to get the years, or a number of years to get the required rate.',
     body: `      <div class="card calc-card" id="r72">
         <div class="calc-grid">
-          ${field('r72-rate', 'Annual return (%)', 'e.g. 12', ' value="12"')}
-          ${field('r72-years', 'Or: years to double', 'e.g. 6', ' value="6"')}
+          ${field('r72-rate', 'Annual return (%)', 'e.g. 12')}
+          ${field('r72-years', 'Or: years to double', 'e.g. 6')}
         </div>
         <div class="calc-results" aria-live="polite">
           ${tile('r72-time', 'Doubling time (Rule of 72)')}
@@ -451,7 +451,7 @@ const PAGES = [
         </div>
       </div>`,
     faqs: [
-      ['How accurate is the Rule of 72?', 'Very accurate between roughly 4% and 15% annual returns — within a few weeks of the exact answer. Outside that band it drifts; this page shows the exact logarithmic result alongside for comparison.'],
+      ['How accurate is the Rule of 72?', 'Very accurate for typical returns between roughly 4% and 15% a year. The calculator also shows the exact doubling time next to the estimate so you can compare.'],
     ],
   },
 
@@ -465,10 +465,10 @@ const PAGES = [
     body: `      <div class="card calc-card" id="sp">
         <div class="card-head"><h2>Split details</h2>${currencySelect('sp-cur')}</div>
         <div class="calc-grid">
-          ${field('sp-shares', 'Shares held', 'e.g. 50', ' value="50"')}
-          ${field('sp-price', 'Current price / share', 'e.g. 2400', ' value="2400"')}
-          ${field('sp-old', 'Split ratio — old', '1', ' value="1"')}
-          ${field('sp-new', 'Split ratio — new', 'e.g. 5', ' value="5"')}
+          ${field('sp-shares', 'Shares held', 'e.g. 50')}
+          ${field('sp-price', 'Current price / share', 'e.g. 2400')}
+          ${field('sp-old', 'Split ratio — old', '1')}
+          ${field('sp-new', 'Split ratio — new', 'e.g. 5')}
         </div>
         <p class="field-hint">A 1 → 5 split means every 1 share becomes 5 (e.g. face value ₹10 → ₹2).</p>
         <div class="calc-results" aria-live="polite">
@@ -496,10 +496,10 @@ const PAGES = [
     body: `      <div class="card calc-card" id="bn">
         <div class="card-head"><h2>Bonus details</h2>${currencySelect('bn-cur')}</div>
         <div class="calc-grid">
-          ${field('bn-shares', 'Shares held', 'e.g. 100', ' value="100"')}
-          ${field('bn-price', 'Average buy price', 'e.g. 500', ' value="500"')}
-          ${field('bn-a', 'Bonus ratio — bonus shares', 'e.g. 1', ' value="1"')}
-          ${field('bn-b', 'Bonus ratio — for every', 'e.g. 2', ' value="2"')}
+          ${field('bn-shares', 'Shares held', 'e.g. 100')}
+          ${field('bn-price', 'Average buy price', 'e.g. 500')}
+          ${field('bn-a', 'Bonus ratio — bonus shares', 'e.g. 1')}
+          ${field('bn-b', 'Bonus ratio — for every', 'e.g. 2')}
         </div>
         <p class="field-hint">A 1:2 bonus means 1 free share for every 2 held.</p>
         <div class="calc-results" aria-live="polite">
@@ -527,9 +527,9 @@ const PAGES = [
     body: `      <div class="card calc-card" id="dv">
         <div class="card-head"><h2>Dividend yield calculator</h2>${currencySelect('dv-cur')}</div>
         <div class="calc-grid">
-          ${field('dv-dps', 'Annual dividend / share', 'e.g. 12', ' value="12"')}
-          ${field('dv-price', 'Current share price', 'e.g. 400', ' value="400"')}
-          ${field('dv-shares', 'Shares held (optional)', 'e.g. 100', ' value="100"')}
+          ${field('dv-dps', 'Annual dividend / share', 'e.g. 12')}
+          ${field('dv-price', 'Current share price', 'e.g. 400')}
+          ${field('dv-shares', 'Shares held (optional)', 'e.g. 100')}
         </div>
         <div class="calc-results" aria-live="polite">
           ${tile('dv-yield', 'Dividend yield')}

@@ -1,5 +1,6 @@
-/* Service worker: cache-first for the app shell so it works offline. */
-var CACHE = 'sac-v8';
+/* Service worker: network-first with cache fallback. Users always get the
+   freshest page when online; the cache only serves when offline. */
+var CACHE = 'sac-v9';
 var ASSETS = [
   './',
   './index.html',
@@ -54,15 +55,14 @@ self.addEventListener('fetch', function (e) {
   if (url.origin !== location.origin) return;
 
   e.respondWith(
-    caches.match(e.request, { ignoreSearch: true }).then(function (cached) {
-      var network = fetch(e.request).then(function (res) {
-        if (res && res.ok) {
-          var copy = res.clone();
-          caches.open(CACHE).then(function (c) { c.put(e.request, copy); });
-        }
-        return res;
-      }).catch(function () { return cached; });
-      return cached || network;
+    fetch(e.request).then(function (res) {
+      if (res && res.ok) {
+        var copy = res.clone();
+        caches.open(CACHE).then(function (c) { c.put(e.request, copy); });
+      }
+      return res;
+    }).catch(function () {
+      return caches.match(e.request, { ignoreSearch: true });
     })
   );
 });
