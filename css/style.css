@@ -36,28 +36,8 @@
   --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:where(:not([data-theme="light"])) {
-    color-scheme: dark;
-    --page: #0d0d0d;
-    --surface: #1a1a19;
-    --surface-2: #242423;
-    --text-primary: #f0efec;
-    --text-secondary: #c3c2b7;
-    --text-muted: #898781;
-    --border: rgba(255, 255, 255, 0.10);
-    --gridline: #2c2c2a;
-    --axis: #383835;
-    --accent: #3987e5;
-    --series-bar: #3987e5;
-    --series-bar-hover: #6da7ec;
-    --series-avg: #d95926;
-    --good: #0ca30c;
-    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.45);
-    --shadow-pop: 0 4px 10px rgba(0, 0, 0, 0.5), 0 16px 40px rgba(0, 0, 0, 0.55);
-  }
-}
-
+/* Light is the default for everyone; dark is an explicit opt-in
+   via the header toggle (persisted in localStorage). */
 :root[data-theme="dark"] {
   color-scheme: dark;
   --page: #0d0d0d;
@@ -169,10 +149,6 @@ a { color: var(--accent); }
 .icon-moon { display: none; }
 :root[data-theme="dark"] .icon-sun { display: none; }
 :root[data-theme="dark"] .icon-moon { display: block; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .icon-sun { display: none; }
-  :root:not([data-theme="light"]) .icon-moon { display: block; }
-}
 
 @media (max-width: 640px) {
   .site-nav { display: none; }

@@ -155,7 +155,6 @@
       breakdownWrap.hidden = true;
       renderChart([]);
       updatePlanner();
-      syncUrl([]);
       return;
     }
 
@@ -179,7 +178,6 @@
     renderTable(buys, totalUnits, totalInvested, avg);
     renderChart(buys, avg);
     updatePlanner();
-    syncUrl(buys);
   }
 
   function renderTable(buys, totalUnits, totalInvested, avg) {
@@ -437,33 +435,6 @@
     planResult.appendChild(p);
   }
 
-  /* ---------- shareable URL state ---------- */
-
-  function syncUrl(buys) {
-    if (!window.history || !window.history.replaceState) return;
-    var url = location.pathname;
-    if (buys.length) {
-      var b = buys.map(function (x) { return x.units + 'x' + x.price; }).join(',');
-      url += '?b=' + encodeURIComponent(b) + '&c=' + currencyEl.value;
-    }
-    history.replaceState(null, '', url + location.hash);
-  }
-
-  function loadFromUrl() {
-    var params = new URLSearchParams(location.search);
-    var b = params.get('b');
-    var c = params.get('c');
-    if (c && currencyEl.querySelector('option[value="' + c.replace(/[^A-Z]/g, '') + '"]')) {
-      currencyEl.value = c.replace(/[^A-Z]/g, '');
-    }
-    if (!b) return false;
-    var parts = b.split(',').map(function (s) { return s.split('x').map(parseFloat); })
-      .filter(function (a) { return a.length === 2 && isFinite(a[0]) && a[0] > 0 && isFinite(a[1]) && a[1] >= 0; });
-    if (!parts.length) return false;
-    parts.slice(0, 50).forEach(function (a) { addRow(a[0], a[1]); });
-    return true;
-  }
-
   /* ---------- share / copy ---------- */
 
   function buildSummary() {
@@ -474,7 +445,7 @@
     });
     lines.push('→ ' + fmtNum(lastResult.totalUnits) + ' shares, avg ' + fmt(lastResult.avg) +
       ', invested ' + fmt(lastResult.totalInvested, { min: 0, max: 2 }));
-    lines.push(location.href);
+    lines.push(location.origin + location.pathname);
     return lines.join('\n');
   }
 
@@ -529,9 +500,7 @@
   /* ---------- init ---------- */
   /* (reveal-on-scroll, footer year, and service worker live in common.js) */
 
-  if (!loadFromUrl()) {
-    addRow();
-    addRow();
-  }
+  addRow();
+  addRow();
   recalc();
 })();

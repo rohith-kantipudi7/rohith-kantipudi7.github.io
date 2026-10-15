@@ -154,8 +154,7 @@ function render(page) {
   <meta name="twitter:title" content="${page.title}">
   <meta name="twitter:description" content="${page.description}">
   <meta name="twitter:image" content="${SITE}assets/og-image.png">
-  <meta name="theme-color" content="#f6f7fa" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0d0d0d" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f6f7fa">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="./assets/icon-32.png" sizes="32x32" type="image/png">
@@ -246,7 +245,7 @@ const PAGES = [
       <section>
         <h2>How it's calculated</h2>
         ${formulaBox('Net P/L = (Sell price − Buy price) × Quantity − Charges', 'Net profit or loss equals sell price minus buy price, times quantity, minus charges')}
-        <p>The return percentage is measured against your invested amount (buy price × quantity). Charges — brokerage, securities transaction tax, exchange fees, stamp duty — come off the top, so even a "profitable" trade can turn negative once costs are counted. Enter your broker's total charges to see the true picture.</p>
+        <p>The return % is measured against your invested amount. Enter your broker's total charges to see the true net figure.</p>
       </section>`,
     faqs: [
       ['Does the calculator include brokerage and taxes?', 'Yes — enter the total of all charges (brokerage, STT, exchange fees, stamp duty, GST) in the charges field and it is subtracted from your gross profit to give the net figure.'],
@@ -277,7 +276,7 @@ const PAGES = [
       <section>
         <h2>The SIP formula</h2>
         ${formulaBox('FV = P × [((1 + i)<sup>n</sup> − 1) ÷ i] × (1 + i)', 'Future value equals monthly amount times the compound factor')}
-        <p>Here <strong>P</strong> is your monthly amount, <strong>i</strong> the monthly rate (annual ÷ 12), and <strong>n</strong> the number of instalments. Because each instalment compounds from the month it is invested, early months do most of the heavy lifting — which is why starting early matters more than starting big.</p>
+        <p><strong>P</strong> = monthly amount, <strong>i</strong> = monthly rate (annual ÷ 12), <strong>n</strong> = number of instalments. Starting early matters more than starting big.</p>
       </section>`,
     faqs: [
       ['Is the SIP return guaranteed?', 'No. The calculator projects a constant assumed return; real market returns vary year to year. Use a conservative rate for planning — many investors model equity SIPs at 10–12% per annum.'],
@@ -308,7 +307,7 @@ const PAGES = [
       <section>
         <h2>The compound growth formula</h2>
         ${formulaBox('FV = P × (1 + r)<sup>t</sup>', 'Future value equals principal times one plus rate to the power of years')}
-        <p>A lumpsum compounds on the full amount from day one, so for the same total money invested it usually beats a SIP in a steadily rising market — but it also takes the full brunt of a crash the day after you invest. SIPs trade some upside for rupee-cost averaging.</p>
+        <p>A lumpsum compounds on the full amount from day one. Comparing with monthly investing? Try the <a href="./sip-calculator.html">SIP calculator</a>.</p>
       </section>`,
     faqs: [
       ['Lumpsum or SIP — which is better?', 'If you already have the money and a long horizon, lumpsum captures compounding earliest. If you earn monthly or worry about market timing, a SIP averages your entry price. Many investors combine both.'],
@@ -338,7 +337,7 @@ const PAGES = [
       </div>
       <section>
         <h2>How an SWP works</h2>
-        <p>Each month you withdraw a fixed amount while the remaining corpus keeps earning returns. If your withdrawal is below the monthly return on the corpus, the corpus can grow forever; above it, the corpus depletes over time. The "corpus lasts" figure shows when the money would run out at the assumed return — a key number for retirement planning.</p>
+        <p>You withdraw a fixed amount monthly while the rest keeps earning. Withdraw less than the corpus earns and it lasts forever; more, and the "corpus lasts" figure shows when it runs out.</p>
       </section>`,
     faqs: [
       ['What withdrawal rate makes a corpus last forever?', 'If the monthly withdrawal is no more than the corpus times the monthly return rate, the corpus never shrinks. For example, at 8% per annum a corpus of ₹50 lakh sustains about ₹33,000 per month indefinitely before inflation.'],
@@ -369,7 +368,7 @@ const PAGES = [
       <section>
         <h2>The EMI formula</h2>
         ${formulaBox('EMI = P × i × (1 + i)<sup>n</sup> ÷ [(1 + i)<sup>n</sup> − 1]', 'EMI equals principal times monthly rate times compound factor')}
-        <p>With <strong>P</strong> the principal, <strong>i</strong> the monthly rate, and <strong>n</strong> the number of months. Early EMIs are mostly interest; the principal share grows over time. Even a small rate difference compounds into lakhs over a long tenure — always compare the <em>total interest</em>, not just the EMI.</p>
+        <p><strong>P</strong> = principal, <strong>i</strong> = monthly rate, <strong>n</strong> = months. Always compare the <em>total interest</em>, not just the EMI.</p>
       </section>`,
     faqs: [
       ['How can I reduce my total interest?', 'Three levers: a shorter tenure (higher EMI, far less interest), part-prepayments early in the loan when the interest share is highest, and refinancing to a lower rate.'],
@@ -398,7 +397,7 @@ const PAGES = [
       <section>
         <h2>The CAGR formula</h2>
         ${formulaBox('CAGR = (Final ÷ Initial)<sup>1/years</sup> − 1', 'CAGR equals final over initial to the power of one over years, minus one')}
-        <p>CAGR smooths a lumpy journey into a single annual rate — "what steady return would have produced this result?" It's the fairest way to compare investments held for different lengths of time, and the number to check against fixed-deposit rates or index returns.</p>
+        <p>CAGR turns any growth into a single annual rate — the fairest way to compare investments held for different lengths of time.</p>
       </section>`,
     faqs: [
       ['What is the difference between CAGR and absolute return?', 'Absolute return ignores time: doubling your money is 100% whether it took 2 years or 20. CAGR annualises it — doubling in 2 years is a 41.4% CAGR; in 20 years it is only 3.5%.'],
@@ -428,8 +427,8 @@ const PAGES = [
         </div>
       </div>
       <section>
-        <h2>Percentages in investing</h2>
-        <p>Returns, drawdowns, allocation weights, brokerage — nearly every investing number is a percentage. The trap to remember: losses and gains are not symmetric. A 50% loss needs a 100% gain to break even, which is exactly why position sizing and stop-losses matter.</p>
+        <h2>Worth remembering</h2>
+        <p>Losses and gains are not symmetric: a 50% loss needs a 100% gain to break even.</p>
       </section>`,
     faqs: [
       ['How do I calculate a percentage increase?', 'Subtract the old value from the new value, divide by the old value, and multiply by 100. For example, from 80 to 100: (100 − 80) ÷ 80 × 100 = 25%.'],
@@ -457,7 +456,7 @@ const PAGES = [
       <section>
         <h2>Why 72?</h2>
         ${formulaBox('Years to double ≈ 72 ÷ annual return %', 'Years to double approximately equals seventy-two divided by the annual return percentage')}
-        <p>72 divides cleanly by 2, 3, 4, 6, 8, 9 and 12, making mental math easy, and it closely tracks the exact answer <em>ln 2 ÷ ln(1 + r)</em> for typical return rates. At 8% the rule says 9 years; the exact figure is 9.01. The approximation drifts at very high rates — the calculator shows both.</p>
+        <p>At 8% the rule says 9 years; the exact answer is 9.01. The calculator shows both so you can see the drift at extreme rates.</p>
       </section>`,
     faqs: [
       ['How accurate is the Rule of 72?', 'Very accurate between roughly 4% and 15% annual returns — within a few weeks of the exact answer. Outside that band it drifts; this page shows the exact logarithmic result alongside for comparison.'],
@@ -487,9 +486,8 @@ const PAGES = [
         </div>
       </div>
       <section>
-        <h2>What a split changes (and what it doesn't)</h2>
-        <p>A split divides each share into more shares of lower face value. Your share count multiplies, the price divides by the same factor, and the value of your holding is unchanged. Companies split to improve liquidity and make the share price feel more accessible — it is not, by itself, a reason the stock is worth more.</p>
-        <p>Tracking a real split? See <a href="./split-demerger.html">face value splits &amp; demergers</a> for how exchanges adjust prices on the record date.</p>
+        <h2>What a split changes</h2>
+        <p>Your share count multiplies, the price divides by the same factor, and your holding's value is unchanged. More detail: <a href="./split-demerger.html">face value splits &amp; demergers</a>.</p>
       </section>`,
     faqs: [
       ['Do I lose money in a stock split?', 'No. If you held 10 shares at ₹1,000 (₹10,000) and the stock splits 1:5, you now hold 50 shares at ₹200 — still ₹10,000. Only the unit size changes.'],
@@ -520,8 +518,7 @@ const PAGES = [
       </div>
       <section>
         <h2>How a bonus issue works</h2>
-        <p>A bonus issue capitalises the company's reserves into new shares handed free to existing shareholders. Your invested amount is unchanged, so your average cost per share drops in proportion. Note that fractional entitlements are usually settled in cash — this calculator rounds bonus shares down to whole shares, as exchanges do.</p>
-        <p>For announced bonus issues and record dates, see <a href="./bonus-buyback-details.html">bonus &amp; buyback details</a>.</p>
+        <p>Free shares are issued in ratio to your holding; your invested amount is unchanged, so your average cost drops. Fractions are rounded down, as exchanges do. See also: <a href="./bonus-buyback-details.html">bonus &amp; buyback details</a>.</p>
       </section>`,
     faqs: [
       ['Is a bonus share free money?', 'Not quite — the share price adjusts down on the ex-bonus date so the total value of your holding stays the same. The benefit is more liquid units and a signal of confidence from the company.'],
@@ -650,7 +647,7 @@ const PAGES = [
       </div>
       <section>
         <h2>How to use the score</h2>
-        <p>Pull each answer from the company's annual report or any stock-screener website, pick honestly, and read the result as a checklist discipline — it forces you to look at eight things that matter before the story and the price chart take over. A high score is a reason to research further, never a buy signal by itself.</p>
+        <p>Pull each answer from the annual report or any stock screener. A high score is a reason to research further — never a buy signal by itself.</p>
       </section>`,
     faqs: [
       ['Is this an AI prediction of the stock price?', 'No. It is a transparent, rules-based scorecard: eight fundamental checks, equally weighted, scored out of 100. No model can reliably predict short-term stock prices — be wary of tools that claim to.'],

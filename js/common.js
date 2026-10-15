@@ -8,8 +8,7 @@
   if (toggle) {
     toggle.addEventListener('click', function () {
       var root = document.documentElement;
-      var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      var current = root.getAttribute('data-theme') || (systemDark ? 'dark' : 'light');
+      var current = root.getAttribute('data-theme') || 'light';
       var next = current === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
       try { localStorage.setItem('sac-theme', next); } catch (e) {}
