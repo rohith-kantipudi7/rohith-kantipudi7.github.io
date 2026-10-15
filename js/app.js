@@ -491,15 +491,8 @@
     }).catch(function () {});
   });
 
-  /* ---------- theme toggle ---------- */
-
-  document.getElementById('theme-toggle').addEventListener('click', function () {
-    var root = document.documentElement;
-    var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var current = root.getAttribute('data-theme') || (systemDark ? 'dark' : 'light');
-    var next = current === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    try { localStorage.setItem('sac-theme', next); } catch (e) {}
+  /* theme switching lives in common.js; re-render the chart on change */
+  window.addEventListener('themechange', function () {
     if (lastResult) renderChart(lastResult.buys, lastResult.avg);
   });
 
@@ -533,36 +526,12 @@
     }, 150);
   });
 
-  /* ---------- reveal on scroll ---------- */
-
-  if ('IntersectionObserver' in window &&
-      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.reveal').forEach(function (n) { io.observe(n); });
-  } else {
-    document.querySelectorAll('.reveal').forEach(function (n) { n.classList.add('in'); });
-  }
-
   /* ---------- init ---------- */
-
-  document.getElementById('year').textContent = String(new Date().getFullYear());
+  /* (reveal-on-scroll, footer year, and service worker live in common.js) */
 
   if (!loadFromUrl()) {
     addRow();
     addRow();
   }
   recalc();
-
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function () {
-      navigator.serviceWorker.register('./sw.js').catch(function () {});
-    });
-  }
 })();

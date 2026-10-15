@@ -184,6 +184,9 @@
 
   <header class="site-header">
     <div class="container header-inner">
+      <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Open tools menu" aria-expanded="false" aria-controls="sidebar">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
       <a class="brand" href="./" aria-label="Stock Average Calculator — home">
         <svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false">
           <defs>
@@ -212,7 +215,42 @@
     </div>
   </header>
 
-  <main id="main">
+  <div class="shell container-wide">
+  <aside id="sidebar" class="sidebar" aria-label="All tools">
+    <nav>
+      <p class="sidebar-group">Calculators</p>
+      <ul>
+        <li><a href="./" aria-current="page">Stock Average</a></li>
+        <li><a href="./profit-loss-calculator.html">Stock Profit / Loss</a></li>
+        <li><a href="./sip-calculator.html">SIP</a></li>
+        <li><a href="./lumpsum-calculator.html">Lumpsum</a></li>
+        <li><a href="./swp-calculator.html">SWP</a></li>
+        <li><a href="./emi-calculator.html">EMI</a></li>
+        <li><a href="./cagr-calculator.html">CAGR</a></li>
+        <li><a href="./percentage-calculator.html">Percentage</a></li>
+        <li><a href="./rule-of-72-calculator.html">Rule of 72</a></li>
+        <li><a href="./stock-split-calculator.html">Stock Split</a></li>
+        <li><a href="./bonus-share-calculator.html">Bonus Shares</a></li>
+      </ul>
+      <p class="sidebar-group">Market info</p>
+      <ul>
+        <li><a href="./dividend-details.html">Dividend Details</a></li>
+        <li><a href="./bonus-buyback-details.html">Bonus &amp; Buyback</a></li>
+        <li><a href="./split-demerger.html">Split &amp; Demerger</a></li>
+        <li><a href="./stock-score.html">Stock Score</a></li>
+        <li><a href="./trading-holidays.html">Trading Holidays 2026</a></li>
+      </ul>
+      <p class="sidebar-group">More</p>
+      <ul>
+        <li><a href="./books.html">Investment Books</a></li>
+        <li><a href="./support.html">Support ☕</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <div class="scrim" id="scrim" hidden></div>
+
+  <main id="main" class="content">
     <!-- ============ HERO ============ -->
     <section class="hero">
       <div class="container">
@@ -460,6 +498,7 @@
       </div>
     </section>
   </main>
+  </div>
 
   <footer class="site-footer">
     <div class="container footer-inner">
@@ -469,6 +508,7 @@
     </div>
   </footer>
 
+  <script src="./js/common.js" defer></script>
   <script src="./js/app.js" defer></script>
 </body>
 </html>
