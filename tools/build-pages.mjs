@@ -33,7 +33,7 @@ export const SIDEBAR = [
   ]],
   ['More', [
     ['books.html', 'Investment Books'],
-    ['support.html', 'Support ☕'],
+    ['support.html', 'Support'],
     ['contact.html', 'Contact'],
   ]],
 ];
@@ -178,6 +178,8 @@ function render(page) {
   <meta property="og:image" content="${SITE}assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="${page.h1} — free online tool">
+  <meta property="og:locale" content="en_IN">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${page.title}">
   <meta name="twitter:description" content="${page.description}">
@@ -238,8 +240,6 @@ ${page.needsCalcJs === false ? '' : '  <script src="./js/calc.js" defer></script
 
 /* ---------------- page definitions ---------------- */
 
-const formulaBox = (f, label) => `<p class="formula" aria-label="${label}">${f}</p>`;
-
 const PAGES = [
 
   /* ------- Stock Profit / Loss ------- */
@@ -263,12 +263,7 @@ const PAGES = [
           ${tile('pl-net', 'Net profit / loss')}
           ${tile('pl-pct', 'Return')}
         </div>
-      </div>
-      <section>
-        <h2>How it's calculated</h2>
-        ${formulaBox('Net P/L = (Sell price − Buy price) × Quantity − Charges', 'Net profit or loss equals sell price minus buy price, times quantity, minus charges')}
-        <p>The return % is measured against your invested amount. Enter your broker's total charges to see the true net figure.</p>
-      </section>`,
+      </div>`,
     faqs: [
       ['Does the calculator include brokerage and taxes?', 'Yes — enter the total of all charges (brokerage, STT, exchange fees, stamp duty, GST) in the charges field and it is subtracted from your gross profit to give the net figure.'],
       ['What is a good return percentage on a stock trade?', 'There is no universal number — compare your return to the index over the same period and to the risk you took. A 10% gain in a month is excellent; the same gain over five years lags most benchmarks.'],
@@ -285,7 +280,7 @@ const PAGES = [
     body: `      <div class="card calc-card" id="sip">
         <div class="card-head"><h2>SIP details</h2>${currencySelect('sip-cur')}</div>
         <div class="calc-grid">
-          ${field('sip-amount', 'Monthly investment', 'e.g. 10000', ' value="10000"')}
+          ${field('sip-amount', 'Monthly investment', 'e.g. 10000', ' value="10000" data-echo=\"1\"')}
           ${field('sip-rate', 'Expected return (% p.a.)', 'e.g. 12', ' value="12"')}
           ${field('sip-years', 'Duration (years)', 'e.g. 10', ' value="10"')}
         </div>
@@ -294,12 +289,7 @@ const PAGES = [
           ${tile('sip-value', 'Estimated value')}
           ${tile('sip-gain', 'Wealth gain')}
         </div>
-      </div>
-      <section>
-        <h2>The SIP formula</h2>
-        ${formulaBox('FV = P × [((1 + i)<sup>n</sup> − 1) ÷ i] × (1 + i)', 'Future value equals monthly amount times the compound factor')}
-        <p><strong>P</strong> = monthly amount, <strong>i</strong> = monthly rate (annual ÷ 12), <strong>n</strong> = number of instalments. Starting early matters more than starting big.</p>
-      </section>`,
+      </div>`,
     faqs: [
       ['Is the SIP return guaranteed?', 'No. The calculator projects a constant assumed return; real market returns vary year to year. Use a conservative rate for planning — many investors model equity SIPs at 10–12% per annum.'],
       ['What happens if I increase my SIP every year?', 'A step-up SIP (increasing the instalment annually) can significantly raise the final corpus. This calculator models a fixed instalment; add a margin or recalculate with a higher monthly amount to approximate a step-up.'],
@@ -316,7 +306,7 @@ const PAGES = [
     body: `      <div class="card calc-card" id="ls">
         <div class="card-head"><h2>Investment details</h2>${currencySelect('ls-cur')}</div>
         <div class="calc-grid">
-          ${field('ls-amount', 'Investment amount', 'e.g. 100000', ' value="100000"')}
+          ${field('ls-amount', 'Investment amount', 'e.g. 100000', ' value="100000" data-echo=\"1\"')}
           ${field('ls-rate', 'Expected return (% p.a.)', 'e.g. 12', ' value="12"')}
           ${field('ls-years', 'Duration (years)', 'e.g. 10', ' value="10"')}
         </div>
@@ -325,12 +315,7 @@ const PAGES = [
           ${tile('ls-gain', 'Total gain')}
           ${tile('ls-mult', 'Growth multiple')}
         </div>
-      </div>
-      <section>
-        <h2>The compound growth formula</h2>
-        ${formulaBox('FV = P × (1 + r)<sup>t</sup>', 'Future value equals principal times one plus rate to the power of years')}
-        <p>A lumpsum compounds on the full amount from day one. Comparing with monthly investing? Try the <a href="./sip-calculator.html">SIP calculator</a>.</p>
-      </section>`,
+      </div>`,
     faqs: [
       ['Lumpsum or SIP — which is better?', 'If you already have the money and a long horizon, lumpsum captures compounding earliest. If you earn monthly or worry about market timing, a SIP averages your entry price. Many investors combine both.'],
     ],
@@ -346,8 +331,8 @@ const PAGES = [
     body: `      <div class="card calc-card" id="swp">
         <div class="card-head"><h2>Withdrawal plan</h2>${currencySelect('swp-cur')}</div>
         <div class="calc-grid">
-          ${field('swp-corpus', 'Starting corpus', 'e.g. 5000000', ' value="5000000"')}
-          ${field('swp-withdraw', 'Monthly withdrawal', 'e.g. 30000', ' value="30000"')}
+          ${field('swp-corpus', 'Starting corpus', 'e.g. 5000000', ' value="5000000" data-echo=\"1\"')}
+          ${field('swp-withdraw', 'Monthly withdrawal', 'e.g. 30000', ' value="30000" data-echo=\"1\"')}
           ${field('swp-rate', 'Expected return (% p.a.)', 'e.g. 8', ' value="8"')}
           ${field('swp-years', 'Period (years)', 'e.g. 20', ' value="20"')}
         </div>
@@ -377,7 +362,7 @@ const PAGES = [
     body: `      <div class="card calc-card" id="emi">
         <div class="card-head"><h2>Loan details</h2>${currencySelect('emi-cur')}</div>
         <div class="calc-grid">
-          ${field('emi-amount', 'Loan amount', 'e.g. 2500000', ' value="2500000"')}
+          ${field('emi-amount', 'Loan amount', 'e.g. 2500000', ' value="2500000" data-echo=\"1\"')}
           ${field('emi-rate', 'Interest rate (% p.a.)', 'e.g. 8.5', ' value="8.5"')}
           ${field('emi-years', 'Tenure (years)', 'e.g. 20', ' value="20"')}
         </div>
@@ -386,12 +371,7 @@ const PAGES = [
           ${tile('emi-interest', 'Total interest')}
           ${tile('emi-total', 'Total payment')}
         </div>
-      </div>
-      <section>
-        <h2>The EMI formula</h2>
-        ${formulaBox('EMI = P × i × (1 + i)<sup>n</sup> ÷ [(1 + i)<sup>n</sup> − 1]', 'EMI equals principal times monthly rate times compound factor')}
-        <p><strong>P</strong> = principal, <strong>i</strong> = monthly rate, <strong>n</strong> = months. Always compare the <em>total interest</em>, not just the EMI.</p>
-      </section>`,
+      </div>`,
     faqs: [
       ['How can I reduce my total interest?', 'Three levers: a shorter tenure (higher EMI, far less interest), part-prepayments early in the loan when the interest share is highest, and refinancing to a lower rate.'],
     ],
@@ -407,20 +387,15 @@ const PAGES = [
     body: `      <div class="card calc-card" id="cagr">
         <div class="card-head"><h2>Investment values</h2></div>
         <div class="calc-grid">
-          ${field('cagr-initial', 'Starting value', 'e.g. 100000', ' value="100000"')}
-          ${field('cagr-final', 'Final value', 'e.g. 250000', ' value="250000"')}
+          ${field('cagr-initial', 'Starting value', 'e.g. 100000', ' value="100000" data-echo=\"1\"')}
+          ${field('cagr-final', 'Final value', 'e.g. 250000', ' value="250000" data-echo=\"1\"')}
           ${field('cagr-years', 'Duration (years)', 'e.g. 7', ' value="7"')}
         </div>
         <div class="calc-results" aria-live="polite">
           ${tile('cagr-rate', 'CAGR')}
           ${tile('cagr-growth', 'Total growth')}
         </div>
-      </div>
-      <section>
-        <h2>The CAGR formula</h2>
-        ${formulaBox('CAGR = (Final ÷ Initial)<sup>1/years</sup> − 1', 'CAGR equals final over initial to the power of one over years, minus one')}
-        <p>CAGR turns any growth into a single annual rate — the fairest way to compare investments held for different lengths of time.</p>
-      </section>`,
+      </div>`,
     faqs: [
       ['What is the difference between CAGR and absolute return?', 'Absolute return ignores time: doubling your money is 100% whether it took 2 years or 20. CAGR annualises it — doubling in 2 years is a 41.4% CAGR; in 20 years it is only 3.5%.'],
     ],
@@ -474,12 +449,7 @@ const PAGES = [
           ${tile('r72-exact', 'Exact doubling time')}
           ${tile('r72-need', 'Required rate for your years')}
         </div>
-      </div>
-      <section>
-        <h2>Why 72?</h2>
-        ${formulaBox('Years to double ≈ 72 ÷ annual return %', 'Years to double approximately equals seventy-two divided by the annual return percentage')}
-        <p>At 8% the rule says 9 years; the exact answer is 9.01. The calculator shows both so you can see the drift at extreme rates.</p>
-      </section>`,
+      </div>`,
     faqs: [
       ['How accurate is the Rule of 72?', 'Very accurate between roughly 4% and 15% annual returns — within a few weeks of the exact answer. Outside that band it drifts; this page shows the exact logarithmic result alongside for comparison.'],
     ],
@@ -766,7 +736,7 @@ const PAGES = [
     file: 'support.html',
     title: 'Support This Site — Stock Average Calculator',
     description: 'This calculator suite is free, private, and ad-light. Here is how you can support its development.',
-    h1: 'Support this site ☕',
+    h1: 'Support this site',
     intro: 'Every tool here is free, private, and open — if it saves you time, here are two ways to support it.',
     appType: 'WebPage',
     needsCalcJs: false,

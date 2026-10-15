@@ -15,6 +15,8 @@
   <meta property="og:image" content="https://rohith-kantipudi7.github.io/Stock-Calculator/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="EMI Calculator — free online tool">
+  <meta property="og:locale" content="en_IN">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="EMI Calculator — Loan Monthly Payment & Interest (Free)">
   <meta name="twitter:description" content="Free EMI calculator. Enter loan amount, interest rate, and tenure to get your exact monthly EMI, total interest payable, and total repayment.">
@@ -136,7 +138,7 @@
       <p class="sidebar-group">More</p>
       <ul>
         <li><a href="./books.html">Investment Books</a></li>
-        <li><a href="./support.html">Support ☕</a></li>
+        <li><a href="./support.html">Support</a></li>
         <li><a href="./contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -153,7 +155,7 @@
       </select></label></div>
         <div class="calc-grid">
           <div class="field"><label for="emi-amount">Loan amount</label>
-        <input id="emi-amount" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 2500000" value="2500000"></div>
+        <input id="emi-amount" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 2500000" value="2500000" data-echo="1"></div>
           <div class="field"><label for="emi-rate">Interest rate (% p.a.)</label>
         <input id="emi-rate" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 8.5" value="8.5"></div>
           <div class="field"><label for="emi-years">Tenure (years)</label>
@@ -165,11 +167,6 @@
           <div class="stat-tile"><p class="stat-label">Total payment</p><p class="stat-value-sm" id="emi-total">—</p></div>
         </div>
       </div>
-      <section>
-        <h2>The EMI formula</h2>
-        <p class="formula" aria-label="EMI equals principal times monthly rate times compound factor">EMI = P × i × (1 + i)<sup>n</sup> ÷ [(1 + i)<sup>n</sup> − 1]</p>
-        <p><strong>P</strong> = principal, <strong>i</strong> = monthly rate, <strong>n</strong> = months. Always compare the <em>total interest</em>, not just the EMI.</p>
-      </section>
       <section aria-label="Frequently asked questions">
         <h2>Frequently asked questions</h2>
         <details class="faq-item"><summary>How can I reduce my total interest?</summary><p>Three levers: a shorter tenure (higher EMI, far less interest), part-prepayments early in the loan when the interest share is highest, and refinancing to a lower rate.</p></details>

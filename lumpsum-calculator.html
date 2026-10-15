@@ -15,6 +15,8 @@
   <meta property="og:image" content="https://rohith-kantipudi7.github.io/Stock-Calculator/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lumpsum Calculator — free online tool">
+  <meta property="og:locale" content="en_IN">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Lumpsum Calculator — One-Time Investment Growth (Free)">
   <meta name="twitter:description" content="Free lumpsum calculator. See what a one-time investment grows into with compound returns — future value and total gain, calculated instantly.">
@@ -136,7 +138,7 @@
       <p class="sidebar-group">More</p>
       <ul>
         <li><a href="./books.html">Investment Books</a></li>
-        <li><a href="./support.html">Support ☕</a></li>
+        <li><a href="./support.html">Support</a></li>
         <li><a href="./contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -153,7 +155,7 @@
       </select></label></div>
         <div class="calc-grid">
           <div class="field"><label for="ls-amount">Investment amount</label>
-        <input id="ls-amount" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 100000" value="100000"></div>
+        <input id="ls-amount" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 100000" value="100000" data-echo="1"></div>
           <div class="field"><label for="ls-rate">Expected return (% p.a.)</label>
         <input id="ls-rate" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 12" value="12"></div>
           <div class="field"><label for="ls-years">Duration (years)</label>
@@ -165,11 +167,6 @@
           <div class="stat-tile"><p class="stat-label">Growth multiple</p><p class="stat-value-sm" id="ls-mult">—</p></div>
         </div>
       </div>
-      <section>
-        <h2>The compound growth formula</h2>
-        <p class="formula" aria-label="Future value equals principal times one plus rate to the power of years">FV = P × (1 + r)<sup>t</sup></p>
-        <p>A lumpsum compounds on the full amount from day one. Comparing with monthly investing? Try the <a href="./sip-calculator.html">SIP calculator</a>.</p>
-      </section>
       <section aria-label="Frequently asked questions">
         <h2>Frequently asked questions</h2>
         <details class="faq-item"><summary>Lumpsum or SIP — which is better?</summary><p>If you already have the money and a long horizon, lumpsum captures compounding earliest. If you earn monthly or worry about market timing, a SIP averages your entry price. Many investors combine both.</p></details>

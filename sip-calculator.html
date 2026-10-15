@@ -15,6 +15,8 @@
   <meta property="og:image" content="https://rohith-kantipudi7.github.io/Stock-Calculator/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="SIP Calculator — free online tool">
+  <meta property="og:locale" content="en_IN">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SIP Calculator — Monthly Investment Future Value (Free)">
   <meta name="twitter:description" content="Free SIP calculator. Enter your monthly investment, expected return, and duration to see your invested amount, estimated future value, and wealth gain.">
@@ -144,7 +146,7 @@
       <p class="sidebar-group">More</p>
       <ul>
         <li><a href="./books.html">Investment Books</a></li>
-        <li><a href="./support.html">Support ☕</a></li>
+        <li><a href="./support.html">Support</a></li>
         <li><a href="./contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -161,7 +163,7 @@
       </select></label></div>
         <div class="calc-grid">
           <div class="field"><label for="sip-amount">Monthly investment</label>
-        <input id="sip-amount" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 10000" value="10000"></div>
+        <input id="sip-amount" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 10000" value="10000" data-echo="1"></div>
           <div class="field"><label for="sip-rate">Expected return (% p.a.)</label>
         <input id="sip-rate" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 12" value="12"></div>
           <div class="field"><label for="sip-years">Duration (years)</label>
@@ -173,11 +175,6 @@
           <div class="stat-tile"><p class="stat-label">Wealth gain</p><p class="stat-value-sm" id="sip-gain">—</p></div>
         </div>
       </div>
-      <section>
-        <h2>The SIP formula</h2>
-        <p class="formula" aria-label="Future value equals monthly amount times the compound factor">FV = P × [((1 + i)<sup>n</sup> − 1) ÷ i] × (1 + i)</p>
-        <p><strong>P</strong> = monthly amount, <strong>i</strong> = monthly rate (annual ÷ 12), <strong>n</strong> = number of instalments. Starting early matters more than starting big.</p>
-      </section>
       <section aria-label="Frequently asked questions">
         <h2>Frequently asked questions</h2>
         <details class="faq-item"><summary>Is the SIP return guaranteed?</summary><p>No. The calculator projects a constant assumed return; real market returns vary year to year. Use a conservative rate for planning — many investors model equity SIPs at 10–12% per annum.</p></details>

@@ -36,6 +36,24 @@
 
   function out(id, text) { var el = $(id); if (el) el.textContent = text; }
 
+  /* Live "reads as" hint under large money inputs, e.g. 2500000 -> ₹25,00,000 */
+  document.querySelectorAll('input[data-echo]').forEach(function (inp) {
+    var echo = document.createElement('div');
+    echo.className = 'field-echo';
+    inp.insertAdjacentElement('afterend', echo);
+    var card = inp.closest('.calc-card');
+    var sel = card ? card.querySelector('.calc-currency') : null;
+    var update = function () {
+      var v = parseFloat(inp.value);
+      echo.textContent = (isFinite(v) && Math.abs(v) >= 1000)
+        ? money(v, sel ? sel.value : 'INR', 0)
+        : '';
+    };
+    inp.addEventListener('input', update);
+    if (sel) sel.addEventListener('change', update);
+    update();
+  });
+
   /* Wire every input/select inside root to recalc, and run once. */
   function wire(rootId, recalc) {
     var root = $(rootId);

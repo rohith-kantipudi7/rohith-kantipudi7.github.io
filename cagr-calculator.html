@@ -15,6 +15,8 @@
   <meta property="og:image" content="https://rohith-kantipudi7.github.io/Stock-Calculator/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="CAGR Calculator — free online tool">
+  <meta property="og:locale" content="en_IN">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="CAGR Calculator — Compound Annual Growth Rate (Free)">
   <meta name="twitter:description" content="Free CAGR calculator. Enter the starting value, final value, and years to get the compound annual growth rate and total growth of your investment.">
@@ -136,7 +138,7 @@
       <p class="sidebar-group">More</p>
       <ul>
         <li><a href="./books.html">Investment Books</a></li>
-        <li><a href="./support.html">Support ☕</a></li>
+        <li><a href="./support.html">Support</a></li>
         <li><a href="./contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -149,9 +151,9 @@
         <div class="card-head"><h2>Investment values</h2></div>
         <div class="calc-grid">
           <div class="field"><label for="cagr-initial">Starting value</label>
-        <input id="cagr-initial" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 100000" value="100000"></div>
+        <input id="cagr-initial" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 100000" value="100000" data-echo="1"></div>
           <div class="field"><label for="cagr-final">Final value</label>
-        <input id="cagr-final" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 250000" value="250000"></div>
+        <input id="cagr-final" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 250000" value="250000" data-echo="1"></div>
           <div class="field"><label for="cagr-years">Duration (years)</label>
         <input id="cagr-years" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 7" value="7"></div>
         </div>
@@ -160,11 +162,6 @@
           <div class="stat-tile"><p class="stat-label">Total growth</p><p class="stat-value-sm" id="cagr-growth">—</p></div>
         </div>
       </div>
-      <section>
-        <h2>The CAGR formula</h2>
-        <p class="formula" aria-label="CAGR equals final over initial to the power of one over years, minus one">CAGR = (Final ÷ Initial)<sup>1/years</sup> − 1</p>
-        <p>CAGR turns any growth into a single annual rate — the fairest way to compare investments held for different lengths of time.</p>
-      </section>
       <section aria-label="Frequently asked questions">
         <h2>Frequently asked questions</h2>
         <details class="faq-item"><summary>What is the difference between CAGR and absolute return?</summary><p>Absolute return ignores time: doubling your money is 100% whether it took 2 years or 20. CAGR annualises it — doubling in 2 years is a 41.4% CAGR; in 20 years it is only 3.5%.</p></details>

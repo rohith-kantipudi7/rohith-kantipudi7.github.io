@@ -335,6 +335,15 @@ a { color: var(--accent); }
 
 .field-hint { font-size: 0.8rem; color: var(--text-muted); margin: -0.4rem 0 0.9rem; }
 
+/* live "reads as" hint under large money inputs (set via data-echo) */
+.field-echo {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+  min-height: 1em;
+  font-variant-numeric: tabular-nums;
+}
+
 .pos { color: var(--good) !important; }
 .neg { color: var(--danger) !important; }
 
@@ -427,7 +436,7 @@ select, input[type="number"] {
   background: var(--surface-2);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  padding: 0.6rem 0.75rem;
+  padding: 0.7rem 0.85rem; /* >=44px tall — comfortable touch target */
   width: 100%;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
@@ -653,22 +662,6 @@ input[type="number"]::-webkit-inner-spin-button { appearance: none; margin: 0; }
 
 .steps { padding-left: 1.3rem; display: grid; gap: 0.6rem; color: var(--text-secondary); }
 .steps strong, .example-list strong { color: var(--text-primary); }
-
-.formula {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--accent);
-  border-radius: var(--radius-sm);
-  padding: 1rem 1.25rem;
-  font-size: 1.02rem; font-weight: 600;
-  overflow-x: auto;
-}
-
-.example-list { color: var(--text-secondary); display: grid; gap: 0.3rem; padding-left: 1.3rem; }
-
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-@media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
-.two-col p { color: var(--text-secondary); margin-bottom: 0; }
 
 .note {
   background: color-mix(in srgb, var(--series-avg) 9%, transparent);
