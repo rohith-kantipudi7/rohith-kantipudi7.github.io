@@ -1,0 +1,5 @@
+# ads.txt — authorized digital sellers for this site.
+# No advertising is enabled yet. When you join an ad network, replace the
+# template line below with your real publisher ID (keep the format exactly).
+# Example for Google AdSense:
+# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
