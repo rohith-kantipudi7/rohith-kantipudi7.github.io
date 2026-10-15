@@ -500,7 +500,8 @@
   /* ---------- init ---------- */
   /* (reveal-on-scroll, footer year, and service worker live in common.js) */
 
-  addRow();
-  addRow();
+  /* start with a worked example so the page is alive immediately */
+  addRow(100, 120);
+  addRow(150, 90);
   recalc();
 })();

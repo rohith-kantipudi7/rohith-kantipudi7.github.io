@@ -239,19 +239,15 @@
   <div class="scrim" id="scrim" hidden></div>
 
   <main id="main" class="content">
-    <!-- ============ HERO ============ -->
-    <section class="hero">
-      <div class="container">
-        <h1>Stock Average Calculator</h1>
-        <p class="hero-sub">
-          Add every buy, get your <strong>weighted average share price</strong> instantly —
-          then plan your next move with the averaging-down target tool.
-        </p>
-      </div>
-    </section>
-
     <!-- ============ CALCULATOR ============ -->
     <section id="calculator" class="section section-calc" aria-labelledby="calc-heading">
+      <div class="container page-head">
+        <h1>Stock Average Calculator</h1>
+        <p class="page-intro">
+          Add every buy to see your <strong>weighted average share price</strong> instantly —
+          then plan the next move with the averaging-down tool. The numbers below are an example; just edit them.
+        </p>
+      </div>
       <div class="container calc-layout">
 
         <div class="card card-inputs reveal">
@@ -344,19 +340,18 @@
           <div class="planner-copy">
             <h2 id="planner-heading">Averaging-down planner</h2>
             <p>
-              Want to bring your average to a specific price? Enter today's market price and the
-              average you're aiming for — this tool tells you how many shares to buy and what it will cost.
-              It uses the totals from the calculator above.
+              Enter today's price and your target average — it tells you exactly how many shares
+              to buy and the cost, using the totals above.
             </p>
           </div>
           <div class="planner-form">
             <div class="field">
               <label for="plan-price">Current market price</label>
-              <input id="plan-price" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 85">
+              <input id="plan-price" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 85" value="85">
             </div>
             <div class="field">
               <label for="plan-target">Target average price</label>
-              <input id="plan-target" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 95">
+              <input id="plan-target" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 95" value="95">
             </div>
             <div class="planner-result" id="plan-result" aria-live="polite">
               <p class="planner-placeholder">Fill both fields to see the plan.</p>
@@ -469,10 +464,40 @@
   </div>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="year">2026</span> Stock Average Calculator · Built for investors, free forever.</p>
-      <p class="footer-fine">For education only — not investment advice. No data leaves your browser.</p>
-      <p class="footer-links"><a href="./privacy.html">Privacy policy</a> · <a href="#calculator">Calculator</a> · <a href="#faq">FAQ</a></p>
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <p class="footer-brand">StockCalc</p>
+        <p class="footer-fine">Free, private financial calculators for investors. Everything runs in your browser — nothing is uploaded.</p>
+      </div>
+      <nav aria-label="Calculators">
+        <p class="footer-head">Calculators</p>
+        <a href="./">Stock Average Calculator</a>
+        <a href="./profit-loss-calculator.html">Profit / Loss Calculator</a>
+        <a href="./sip-calculator.html">SIP Calculator</a>
+        <a href="./emi-calculator.html">EMI Calculator</a>
+        <a href="./cagr-calculator.html">CAGR Calculator</a>
+        <a href="./lumpsum-calculator.html">Lumpsum Calculator</a>
+      </nav>
+      <nav aria-label="More tools">
+        <p class="footer-head">More tools</p>
+        <a href="./swp-calculator.html">SWP Calculator</a>
+        <a href="./percentage-calculator.html">Percentage Calculator</a>
+        <a href="./rule-of-72-calculator.html">Rule of 72</a>
+        <a href="./stock-split-calculator.html">Stock Split Calculator</a>
+        <a href="./bonus-share-calculator.html">Bonus Share Calculator</a>
+        <a href="./stock-score.html">Stock Score</a>
+      </nav>
+      <nav aria-label="Market and site">
+        <p class="footer-head">Market &amp; site</p>
+        <a href="./dividend-details.html">Dividend Details</a>
+        <a href="./trading-holidays.html">Trading Holidays 2026</a>
+        <a href="./books.html">Investment Books</a>
+        <a href="./contact.html">Contact</a>
+        <a href="./privacy.html">Privacy Policy</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span class="year">2026</span> StockCalc · For education only — not investment advice.</p>
     </div>
   </footer>
 
