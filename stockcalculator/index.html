@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <!-- Primary SEO -->
+  <title>Stock Market Average Calculator — Average Share Price (Free)</title>
+  <meta name="description" content="Free stock market average calculator. Add unlimited buys, see your average share price instantly, and plan averaging down with the target-price tool.">
+  <meta name="keywords" content="stock average calculator, share average calculator, average stock price, averaging down calculator, weighted average share price, stock market calculator">
+  <meta name="author" content="Rohith Kantipudi">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://rohith-kantipudi7.github.io/stockcalculator/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Stock Average Calculator">
+  <meta property="og:title" content="Stock Market Average Calculator — Average Share Price (Free)">
+  <meta property="og:description" content="Add unlimited buys and see your weighted average share price instantly. Free, private, works offline, and includes an averaging-down planner.">
+  <meta property="og:url" content="https://rohith-kantipudi7.github.io/stockcalculator/">
+  <meta property="og:image" content="https://rohith-kantipudi7.github.io/stockcalculator/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Stock Average Calculator — average your share price in seconds">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stock Market Average Calculator — Average Share Price (Free)">
+  <meta name="twitter:description" content="Add unlimited buys and see your weighted average share price instantly. Free, private, works offline.">
+  <meta name="twitter:image" content="https://rohith-kantipudi7.github.io/stockcalculator/assets/og-image.png">
+
+  <!-- PWA / icons -->
+  <meta name="theme-color" content="#ffffff">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./assets/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="./assets/icon-180.png">
+
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- Restore theme and sidebar state before first paint to avoid a flash -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('sac-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        if (localStorage.getItem('sac-sidebar') === 'closed') {
+          document.documentElement.classList.add('sidebar-collapsed');
+        }
+      } catch (e) { /* storage unavailable */ }
+    })();
+  </script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://rohith-kantipudi7.github.io/stockcalculator/#app",
+        "name": "Stock Average Calculator",
+        "alternateName": "Stock Market Average Calculator",
+        "url": "https://rohith-kantipudi7.github.io/stockcalculator/",
+        "description": "Free online stock average calculator. Add unlimited purchases, see your weighted average share price instantly, and plan averaging down with a target-price tool.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "featureList": [
+          "Unlimited buy entries",
+          "Instant weighted average price",
+          "Averaging-down target planner",
+          "Visual breakdown chart",
+          "Multi-currency support",
+          "Dark mode",
+          "Works offline (PWA)"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://rohith-kantipudi7.github.io/stockcalculator/#website",
+        "name": "Stock Average Calculator",
+        "url": "https://rohith-kantipudi7.github.io/stockcalculator/"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Stock Average Calculator",
+            "item": "https://rohith-kantipudi7.github.io/stockcalculator/"
+          }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to calculate your average stock price",
+        "description": "Use the free stock average calculator to find the weighted average price per share across multiple purchases.",
+        "totalTime": "PT1M",
+        "estimatedCost": { "@type": "MonetaryAmount", "currency": "USD", "value": "0" },
+        "step": [
+          { "@type": "HowToStep", "position": 1, "name": "Enter each purchase", "text": "For every time you bought the stock, type the number of shares and the price you paid per share." },
+          { "@type": "HowToStep", "position": 2, "name": "Add more buys if needed", "text": "Use the Add another buy button — there is no limit on entries." },
+          { "@type": "HowToStep", "position": 3, "name": "Read your average instantly", "text": "The weighted average price, total shares, and total invested update as you type." },
+          { "@type": "HowToStep", "position": 4, "name": "Check the chart", "text": "Each bar is one of your buys; the line marks your overall average, so you can see which purchases pull it up or down." },
+          { "@type": "HowToStep", "position": 5, "name": "Plan the next buy", "text": "Use the averaging-down planner to find exactly how many shares at today's price would move your average to a target." }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a stock market average calculator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A stock market average calculator works out the weighted average price you have paid per share across multiple purchases of the same stock. It multiplies each purchase's quantity by its price, adds those amounts together, and divides by the total number of shares."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does averaging down reduce my loss?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Averaging down lowers your break-even price, so the stock needs a smaller recovery for your position to return to profit. It does not reduce the loss on shares you already own, and it increases the money you have at risk, so it should only be used on companies you still believe in."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many purchases can I add?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can add as many buy entries as you need. The calculator recalculates the weighted average instantly every time you add, edit, or remove a purchase."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use this for crypto, ETFs, or mutual funds?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The maths works the same for any asset bought in units — stocks, ETFs, mutual funds, gold, or cryptocurrency. Enter the units you bought and the price per unit for each purchase."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my data stored or sent anywhere?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. All calculations run entirely in your browser. Nothing you type is uploaded, tracked, or stored on a server, and the app even works offline once loaded."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is the average price different from the break-even price?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The average price is purely what you paid per share. Your true break-even also includes brokerage, exchange fees, and taxes, so it is usually slightly higher than the average. This calculator shows the raw weighted average — add your transaction costs on top for an exact break-even."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens to my average when I buy more shares at a lower price?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Your average moves toward the new, lower price in proportion to how many shares you add. The more shares you buy at the lower price relative to what you already hold, the closer your average gets to that price — but it can never go below it."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#calculator">Skip to calculator</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Toggle tools menu" aria-expanded="true" aria-controls="sidebar">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
+      <a class="brand" href="./" aria-label="Stock Average Calculator — home">StockCalc</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="#how-it-works">How to use</a>
+        <a href="#faq">FAQ</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.5v2.5M12 19v2.5M2.5 12h2.5M19 12h2.5M5 5l1.8 1.8M17.2 17.2L19 19M19 5l-1.8 1.8M6.8 17.2L5 19"/></g></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="shell container-wide">
+  <aside id="sidebar" class="sidebar" aria-label="All tools">
+    <nav>
+      <p class="sidebar-group">Calculators</p>
+      <ul>
+        <li><a href="./" aria-current="page">Stock Average</a></li>
+        <li><a href="./profit-loss-calculator.html">Stock Profit / Loss</a></li>
+        <li><a href="./sip-calculator.html">SIP</a></li>
+        <li><a href="./lumpsum-calculator.html">Lumpsum</a></li>
+        <li><a href="./swp-calculator.html">SWP</a></li>
+        <li><a href="./emi-calculator.html">EMI</a></li>
+        <li><a href="./cagr-calculator.html">CAGR</a></li>
+        <li><a href="./percentage-calculator.html">Percentage</a></li>
+        <li><a href="./rule-of-72-calculator.html">Rule of 72</a></li>
+        <li><a href="./stock-split-calculator.html">Stock Split</a></li>
+        <li><a href="./bonus-share-calculator.html">Bonus Shares</a></li>
+      </ul>
+      <p class="sidebar-group">Market info</p>
+      <ul>
+        <li><a href="./dividend-details.html">Dividend Details</a></li>
+        <li><a href="./bonus-buyback-details.html">Bonus &amp; Buyback</a></li>
+        <li><a href="./split-demerger.html">Split &amp; Demerger</a></li>
+        <li><a href="./stock-score.html">Stock Score</a></li>
+        <li><a href="./trading-holidays.html">Trading Holidays 2026</a></li>
+      </ul>
+      <p class="sidebar-group">More</p>
+      <ul>
+        <li><a href="./books.html">Investment Books</a></li>
+        <li><a href="./support.html">Support</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <div class="scrim" id="scrim" hidden></div>
+
+  <main id="main" class="content">
+    <!-- ============ CALCULATOR ============ -->
+    <section id="calculator" class="section section-calc" aria-labelledby="calc-heading">
+      <div class="container page-head">
+        <h1>Stock Average Calculator</h1>
+        <p class="page-intro">
+          Add every buy to see your <strong>weighted average share price</strong> instantly —
+          then plan the next move with the averaging-down tool. Free, private, and works offline.
+        </p>
+      </div>
+      <div class="container calc-layout">
+
+        <div class="card card-inputs reveal">
+          <div class="card-head">
+            <h2 id="calc-heading">Your purchases</h2>
+            <label class="currency-field">
+              <span class="visually-hidden">Currency</span>
+              <select id="currency" aria-label="Currency">
+                <option value="INR" selected>₹ INR</option>
+                <option value="USD">$ USD</option>
+                <option value="EUR">€ EUR</option>
+                <option value="GBP">£ GBP</option>
+                <option value="JPY">¥ JPY</option>
+              </select>
+            </label>
+          </div>
+
+          <div id="rows" class="rows"><!-- buy rows injected by app.js --></div>
+
+          <div class="row-actions">
+            <button id="add-row" class="btn btn-ghost" type="button">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+              Add another buy
+            </button>
+            <button id="reset" class="btn btn-ghost btn-danger" type="button">Reset</button>
+          </div>
+        </div>
+
+        <div class="card card-results reveal" aria-live="polite">
+          <h2 class="visually-hidden">Results</h2>
+
+          <div class="stat-hero">
+            <p class="stat-label">Average price per share</p>
+            <p class="stat-value" id="out-average">—</p>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat-tile">
+              <p class="stat-label">Total shares</p>
+              <p class="stat-value-sm" id="out-shares">—</p>
+            </div>
+            <div class="stat-tile">
+              <p class="stat-label">Total invested</p>
+              <p class="stat-value-sm" id="out-invested">—</p>
+            </div>
+          </div>
+
+          <div class="chart-block">
+            <div class="chart-head">
+              <h3 class="chart-title">Buy prices vs your average</h3>
+              <div class="chart-legend" id="chart-legend" hidden>
+                <span class="legend-item"><span class="legend-swatch" aria-hidden="true"></span>Buy price</span>
+                <span class="legend-item"><span class="legend-line" aria-hidden="true"></span>Average</span>
+              </div>
+            </div>
+            <div id="chart" class="chart" role="group" aria-label="Chart of buy prices with average line"></div>
+            <div id="chart-tooltip" class="chart-tooltip" role="status" hidden></div>
+            <p id="chart-empty" class="chart-empty">Enter at least one buy to see the breakdown.</p>
+          </div>
+
+          <div class="table-wrap" id="breakdown-wrap" hidden>
+            <table class="breakdown" id="breakdown">
+              <caption class="visually-hidden">Per-purchase breakdown</caption>
+              <thead>
+                <tr><th scope="col">Buy</th><th scope="col">Shares</th><th scope="col">Price</th><th scope="col">Invested</th><th scope="col">Share of total</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <div class="result-actions">
+            <button id="share" class="btn btn-primary" type="button" disabled>
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M8 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm14-7a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm0 14a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM7.6 10.7l8-4.4m-8 7.4l8 4.4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+              <span id="share-label">Copy result</span>
+            </button>
+            <p class="result-hint">Your inputs stay in this browser — nothing is uploaded.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reserved ad slot: when monetizing, paste your ad unit (e.g. AdSense <ins>) inside
+         and remove the hidden attribute. Layout space is pre-styled in .ad-slot. -->
+    <aside class="ad-slot container" aria-label="Advertisement" hidden></aside>
+
+    <!-- ============ TARGET PLANNER ============ -->
+    <section id="planner" class="section" aria-labelledby="planner-heading">
+      <div class="container">
+        <div class="card card-planner reveal">
+          <div class="planner-copy">
+            <h2 id="planner-heading">Averaging-down planner</h2>
+            <p>
+              Enter today's price and your target average — it tells you exactly how many shares
+              to buy and the cost, using the totals above.
+            </p>
+          </div>
+          <div class="planner-form">
+            <div class="field">
+              <label for="plan-price">Current market price</label>
+              <input id="plan-price" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 85">
+            </div>
+            <div class="field">
+              <label for="plan-target">Target average price</label>
+              <input id="plan-target" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 95">
+            </div>
+            <div class="planner-result" id="plan-result" aria-live="polite">
+              <p class="planner-placeholder">Fill both fields to see the plan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTENT ============ -->
+    <section id="how-it-works" class="section section-content" aria-labelledby="hiw-heading">
+      <div class="container narrow">
+        <h2 id="hiw-heading">How to use this calculator</h2>
+        <ol class="steps reveal">
+          <li><strong>Enter each purchase.</strong> For every time you bought the stock, type the number of shares and the price you paid per share.</li>
+          <li><strong>Add more buys if needed.</strong> Use <em>Add another buy</em> — there's no limit on entries.</li>
+          <li><strong>Read your average instantly.</strong> The weighted average price, total shares, and total invested update as you type.</li>
+          <li><strong>Check the chart.</strong> Each bar is one of your buys; the line marks your overall average, so you can see which purchases pull it up or down.</li>
+          <li><strong>Plan the next buy.</strong> Use the averaging-down planner to find exactly how many shares at today's price would move your average to a target.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-content" aria-label="Disclaimer">
+      <div class="container narrow">
+        <p class="note">
+          <strong>Note:</strong> This tool is for information and education only, not investment advice.
+          Markets are unpredictable — always do your own research before buying or selling.
+        </p>
+      </div>
+    </section>
+
+    <!-- Reserved ad slot (second placement) — same drill as above. -->
+    <aside class="ad-slot container" aria-label="Advertisement" hidden></aside>
+
+    <!-- ============ FAQ ============ -->
+    <section id="faq" class="section section-content" aria-labelledby="faq-heading">
+      <div class="container narrow">
+        <h2 id="faq-heading">Frequently asked questions</h2>
+
+        <details class="faq-item reveal">
+          <summary>What is a stock market average calculator?</summary>
+          <p>A stock market average calculator works out the weighted average price you have paid per share across multiple purchases of the same stock. It multiplies each purchase's quantity by its price, adds those amounts together, and divides by the total number of shares.</p>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>Does averaging down reduce my loss?</summary>
+          <p>Averaging down lowers your break-even price, so the stock needs a smaller recovery for your position to return to profit. It does not reduce the loss on shares you already own, and it increases the money you have at risk, so it should only be used on companies you still believe in.</p>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>How many purchases can I add?</summary>
+          <p>You can add as many buy entries as you need. The calculator recalculates the weighted average instantly every time you add, edit, or remove a purchase.</p>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>Can I use this for crypto, ETFs, or mutual funds?</summary>
+          <p>Yes. The maths works the same for any asset bought in units — stocks, ETFs, mutual funds, gold, or cryptocurrency. Enter the units you bought and the price per unit for each purchase.</p>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>Is my data stored or sent anywhere?</summary>
+          <p>No. All calculations run entirely in your browser. Nothing you type is uploaded, tracked, or stored on a server, and the app even works offline once loaded.</p>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>How is the average price different from the break-even price?</summary>
+          <p>The average price is purely what you paid per share. Your true break-even also includes brokerage, exchange fees, and taxes, so it is usually slightly higher than the average. This calculator shows the raw weighted average — add your transaction costs on top for an exact break-even.</p>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>What happens to my average when I buy more shares at a lower price?</summary>
+          <p>Your average moves toward the new, lower price in proportion to how many shares you add. The more shares you buy at the lower price relative to what you already hold, the closer your average gets to that price — but it can never go below it.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <p class="footer-brand">StockCalc</p>
+        <p class="footer-fine">Free, private financial calculators for investors. Everything runs in your browser — nothing is uploaded.</p>
+      </div>
+      <nav aria-label="Calculators">
+        <p class="footer-head">Calculators</p>
+        <a href="./">Stock Average Calculator</a>
+        <a href="./profit-loss-calculator.html">Profit / Loss Calculator</a>
+        <a href="./sip-calculator.html">SIP Calculator</a>
+        <a href="./emi-calculator.html">EMI Calculator</a>
+        <a href="./cagr-calculator.html">CAGR Calculator</a>
+        <a href="./lumpsum-calculator.html">Lumpsum Calculator</a>
+      </nav>
+      <nav aria-label="More tools">
+        <p class="footer-head">More tools</p>
+        <a href="./swp-calculator.html">SWP Calculator</a>
+        <a href="./percentage-calculator.html">Percentage Calculator</a>
+        <a href="./rule-of-72-calculator.html">Rule of 72</a>
+        <a href="./stock-split-calculator.html">Stock Split Calculator</a>
+        <a href="./bonus-share-calculator.html">Bonus Share Calculator</a>
+        <a href="./stock-score.html">Stock Score</a>
+      </nav>
+      <nav aria-label="Market and site">
+        <p class="footer-head">Market &amp; site</p>
+        <a href="./dividend-details.html">Dividend Details</a>
+        <a href="./trading-holidays.html">Trading Holidays 2026</a>
+        <a href="./books.html">Investment Books</a>
+        <a href="./contact.html">Contact</a>
+        <a href="./privacy.html">Privacy Policy</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span class="year">2026</span> StockCalc · For education only — not investment advice.</p>
+    </div>
+  </footer>
+
+  <script src="./js/common.js" defer></script>
+  <script src="./js/app.js" defer></script>
+</body>
+</html>

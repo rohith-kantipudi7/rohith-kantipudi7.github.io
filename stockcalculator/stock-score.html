@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Stock Score — Rate a Stock on 8 Fundamental Checks</title>
+  <meta name="description" content="Score any stock out of 100 on eight fundamental checks: growth, debt, ROE, valuation, promoter holding, moat, cash flow, and governance. Free and private.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://rohith-kantipudi7.github.io/stockcalculator/stock-score.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Stock Average Calculator">
+  <meta property="og:title" content="Stock Score — Rate a Stock on 8 Fundamental Checks">
+  <meta property="og:description" content="Score any stock out of 100 on eight fundamental checks: growth, debt, ROE, valuation, promoter holding, moat, cash flow, and governance. Free and private.">
+  <meta property="og:url" content="https://rohith-kantipudi7.github.io/stockcalculator/stock-score.html">
+  <meta property="og:image" content="https://rohith-kantipudi7.github.io/stockcalculator/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Stock Score — free online tool">
+  <meta property="og:locale" content="en_IN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stock Score — Rate a Stock on 8 Fundamental Checks">
+  <meta name="twitter:description" content="Score any stock out of 100 on eight fundamental checks: growth, debt, ROE, valuation, promoter holding, moat, cash flow, and governance. Free and private.">
+  <meta name="twitter:image" content="https://rohith-kantipudi7.github.io/stockcalculator/assets/og-image.png">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./assets/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="./assets/icon-180.png">
+  <link rel="stylesheet" href="./css/style.css">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('sac-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        if (localStorage.getItem('sac-sidebar') === 'closed') {
+          document.documentElement.classList.add('sidebar-collapsed');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Stock Score",
+      "url": "https://rohith-kantipudi7.github.io/stockcalculator/stock-score.html",
+      "description": "Score any stock out of 100 on eight fundamental checks: growth, debt, ROE, valuation, promoter holding, moat, cash flow, and governance. Free and private.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Stock Average Calculator",
+          "item": "https://rohith-kantipudi7.github.io/stockcalculator/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Stock Score",
+          "item": "https://rohith-kantipudi7.github.io/stockcalculator/stock-score.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this an AI prediction of the stock price?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It is a transparent, rules-based scorecard: eight fundamental checks, equally weighted, scored out of 100. No model can reliably predict short-term stock prices — be wary of tools that claim to."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Toggle tools menu" aria-expanded="true" aria-controls="sidebar">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
+      <a class="brand" href="./" aria-label="Stock Average Calculator — home">StockCalc</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="./">Home</a>
+        <a href="./books.html">Books</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.5v2.5M12 19v2.5M2.5 12h2.5M19 12h2.5M5 5l1.8 1.8M17.2 17.2L19 19M19 5l-1.8 1.8M6.8 17.2L5 19"/></g></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="shell container-wide">
+  <aside id="sidebar" class="sidebar" aria-label="All tools">
+    <nav>
+      <p class="sidebar-group">Calculators</p>
+      <ul>
+        <li><a href="./">Stock Average</a></li>
+        <li><a href="./profit-loss-calculator.html">Stock Profit / Loss</a></li>
+        <li><a href="./sip-calculator.html">SIP</a></li>
+        <li><a href="./lumpsum-calculator.html">Lumpsum</a></li>
+        <li><a href="./swp-calculator.html">SWP</a></li>
+        <li><a href="./emi-calculator.html">EMI</a></li>
+        <li><a href="./cagr-calculator.html">CAGR</a></li>
+        <li><a href="./percentage-calculator.html">Percentage</a></li>
+        <li><a href="./rule-of-72-calculator.html">Rule of 72</a></li>
+        <li><a href="./stock-split-calculator.html">Stock Split</a></li>
+        <li><a href="./bonus-share-calculator.html">Bonus Shares</a></li>
+      </ul>
+      <p class="sidebar-group">Market info</p>
+      <ul>
+        <li><a href="./dividend-details.html">Dividend Details</a></li>
+        <li><a href="./bonus-buyback-details.html">Bonus & Buyback</a></li>
+        <li><a href="./split-demerger.html">Split & Demerger</a></li>
+        <li><a href="./stock-score.html" aria-current="page">Stock Score</a></li>
+        <li><a href="./trading-holidays.html">Trading Holidays 2026</a></li>
+      </ul>
+      <p class="sidebar-group">More</p>
+      <ul>
+        <li><a href="./books.html">Investment Books</a></li>
+        <li><a href="./support.html">Support</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <div class="scrim" id="scrim" hidden></div>
+    <main id="main" class="content">
+      <h1>Stock Score</h1>
+      <p class="page-intro">Rate a stock on eight fundamental checks and get a score out of 100 — a structured second opinion before you buy, not a prediction.</p>
+      <div class="card calc-card" id="score">
+        <h2 class="visually-hidden">Scorecard</h2>
+        <div class="score-grid">
+          <div class="field"><label for="sc-growth">Revenue &amp; profit growth (last 3–5 yrs)</label>
+            <select id="sc-growth" class="sc"><option value="">— pick —</option><option value="2">Consistently growing</option><option value="1">Flat / uneven</option><option value="0">Declining</option></select></div>
+          <div class="field"><label for="sc-debt">Debt level (debt-to-equity)</label>
+            <select id="sc-debt" class="sc"><option value="">— pick —</option><option value="2">Low or zero debt</option><option value="1">Moderate</option><option value="0">Heavy debt</option></select></div>
+          <div class="field"><label for="sc-roe">Return on equity</label>
+            <select id="sc-roe" class="sc"><option value="">— pick —</option><option value="2">Above 15%</option><option value="1">8–15%</option><option value="0">Below 8%</option></select></div>
+          <div class="field"><label for="sc-val">Valuation vs peers (P/E, P/B)</label>
+            <select id="sc-val" class="sc"><option value="">— pick —</option><option value="2">Cheaper than peers</option><option value="1">In line</option><option value="0">Expensive</option></select></div>
+          <div class="field"><label for="sc-promoter">Promoter holding &amp; pledging</label>
+            <select id="sc-promoter" class="sc"><option value="">— pick —</option><option value="2">High holding, no pledge</option><option value="1">Average</option><option value="0">Low / heavily pledged</option></select></div>
+          <div class="field"><label for="sc-moat">Competitive moat</label>
+            <select id="sc-moat" class="sc"><option value="">— pick —</option><option value="2">Strong brand / network / cost edge</option><option value="1">Some advantage</option><option value="0">Commodity business</option></select></div>
+          <div class="field"><label for="sc-cash">Cash flow quality</label>
+            <select id="sc-cash" class="sc"><option value="">— pick —</option><option value="2">Profits convert to cash</option><option value="1">Mixed</option><option value="0">Profits but no cash</option></select></div>
+          <div class="field"><label for="sc-gov">Governance record</label>
+            <select id="sc-gov" class="sc"><option value="">— pick —</option><option value="2">Clean history</option><option value="1">Minor concerns</option><option value="0">Red flags</option></select></div>
+        </div>
+        <div class="score-result" aria-live="polite">
+          <p class="stat-label">Score</p>
+          <p class="stat-value" id="sc-out">—</p>
+          <p id="sc-band" class="score-band"></p>
+        </div>
+      </div>
+      <section>
+        <h2>How to use the score</h2>
+        <p>Pull each answer from the annual report or any stock screener. A high score is a reason to research further — never a buy signal by itself.</p>
+      </section>
+      <section aria-label="Frequently asked questions">
+        <h2>Frequently asked questions</h2>
+        <details class="faq-item"><summary>Is this an AI prediction of the stock price?</summary><p>No. It is a transparent, rules-based scorecard: eight fundamental checks, equally weighted, scored out of 100. No model can reliably predict short-term stock prices — be wary of tools that claim to.</p></details>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <p class="footer-brand">StockCalc</p>
+        <p class="footer-fine">Free, private financial calculators for investors. Everything runs in your browser — nothing is uploaded.</p>
+      </div>
+      <nav aria-label="Calculators">
+        <p class="footer-head">Calculators</p>
+        <a href="./">Stock Average Calculator</a>
+        <a href="./profit-loss-calculator.html">Profit / Loss Calculator</a>
+        <a href="./sip-calculator.html">SIP Calculator</a>
+        <a href="./emi-calculator.html">EMI Calculator</a>
+        <a href="./cagr-calculator.html">CAGR Calculator</a>
+        <a href="./lumpsum-calculator.html">Lumpsum Calculator</a>
+      </nav>
+      <nav aria-label="More tools">
+        <p class="footer-head">More tools</p>
+        <a href="./swp-calculator.html">SWP Calculator</a>
+        <a href="./percentage-calculator.html">Percentage Calculator</a>
+        <a href="./rule-of-72-calculator.html">Rule of 72</a>
+        <a href="./stock-split-calculator.html">Stock Split Calculator</a>
+        <a href="./bonus-share-calculator.html">Bonus Share Calculator</a>
+        <a href="./stock-score.html">Stock Score</a>
+      </nav>
+      <nav aria-label="Market and site">
+        <p class="footer-head">Market &amp; site</p>
+        <a href="./dividend-details.html">Dividend Details</a>
+        <a href="./trading-holidays.html">Trading Holidays 2026</a>
+        <a href="./books.html">Investment Books</a>
+        <a href="./contact.html">Contact</a>
+        <a href="./privacy.html">Privacy Policy</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span class="year">2026</span> StockCalc · For education only — not investment advice.</p>
+    </div>
+  </footer>
+
+  <script src="./js/common.js" defer></script>
+  <script src="./js/calc.js" defer></script>
+</body>
+</html>

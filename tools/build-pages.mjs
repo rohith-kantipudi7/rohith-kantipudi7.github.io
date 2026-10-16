@@ -6,7 +6,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const SITE = 'https://rohith-kantipudi7.github.io/';
+const SITE = 'https://rohith-kantipudi7.github.io/stockcalculator/';
 
 /* ---------------- sidebar (single source of truth) ---------------- */
 
@@ -776,7 +776,7 @@ const PAGES = [
 /* ---------------- write files ---------------- */
 
 for (const page of PAGES) {
-  writeFileSync(join(ROOT, page.file), render(page), 'utf8');
+  writeFileSync(join(ROOT, 'stockcalculator', page.file), render(page), 'utf8');
   console.log('wrote', page.file);
 }
 console.log(`\n${PAGES.length} pages generated.`);
