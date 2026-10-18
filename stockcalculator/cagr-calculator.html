@@ -6,6 +6,8 @@
   <title>CAGR Calculator — Compound Annual Growth Rate (Free)</title>
   <meta name="description" content="Free CAGR calculator. Enter the starting value, final value, and years to get the compound annual growth rate and total growth of your investment.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="canonical" href="https://rohith-kantipudi7.github.io/stockcalculator/cagr-calculator.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Stock Average Calculator">
@@ -27,17 +29,7 @@
   <link rel="icon" href="./assets/icon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="./assets/icon-180.png">
   <link rel="stylesheet" href="./css/style.css">
-  <script>
-    (function () {
-      try {
-        var t = localStorage.getItem('sac-theme');
-        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
-        if (localStorage.getItem('sac-sidebar') === 'closed') {
-          document.documentElement.classList.add('sidebar-collapsed');
-        }
-      } catch (e) {}
-    })();
-  </script>
+  <script src="./js/boot.js"></script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",

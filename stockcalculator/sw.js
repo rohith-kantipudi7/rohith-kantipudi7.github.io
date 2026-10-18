@@ -1,6 +1,6 @@
 /* Service worker: network-first with cache fallback. Users always get the
    freshest page when online; the cache only serves when offline. */
-var CACHE = 'sac-v9';
+var CACHE = 'sac-v10';
 var ASSETS = [
   './',
   './index.html',
@@ -24,6 +24,7 @@ var ASSETS = [
   './contact.html',
   './privacy.html',
   './css/style.css',
+  './js/boot.js',
   './js/common.js',
   './js/app.js',
   './js/calc.js',

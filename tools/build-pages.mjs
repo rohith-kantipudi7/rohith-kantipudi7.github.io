@@ -169,6 +169,8 @@ function render(page) {
   <title>${page.title}</title>
   <meta name="description" content="${page.description}">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="canonical" href="${SITE}${page.file}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Stock Average Calculator">
@@ -190,17 +192,7 @@ function render(page) {
   <link rel="icon" href="./assets/icon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="./assets/icon-180.png">
   <link rel="stylesheet" href="./css/style.css">
-  <script>
-    (function () {
-      try {
-        var t = localStorage.getItem('sac-theme');
-        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
-        if (localStorage.getItem('sac-sidebar') === 'closed') {
-          document.documentElement.classList.add('sidebar-collapsed');
-        }
-      } catch (e) {}
-    })();
-  </script>
+  <script src="./js/boot.js"></script>
   <script type="application/ld+json">
 ${jsonLd(page)}
   </script>

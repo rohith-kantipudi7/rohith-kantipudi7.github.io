@@ -6,17 +6,12 @@
   <title>Privacy Policy — Stock Average Calculator</title>
   <meta name="description" content="Privacy policy for the Stock Average Calculator. All calculations run in your browser — no personal data is collected, stored, or shared.">
   <meta name="robots" content="index, follow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="canonical" href="https://rohith-kantipudi7.github.io/stockcalculator/privacy.html">
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./css/style.css">
-  <script>
-    (function () {
-      try {
-        var t = localStorage.getItem('sac-theme');
-        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
-      } catch (e) {}
-    })();
-  </script>
+  <script src="./js/boot.js"></script>
 </head>
 <body>
   <header class="site-header">

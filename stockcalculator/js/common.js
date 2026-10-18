@@ -3,6 +3,12 @@
 (function () {
   'use strict';
 
+  /* ---------- clickjacking defense (frame-ancestors can't be set via meta CSP) ---------- */
+  if (window.top !== window.self) {
+    try { window.top.location = window.location; }
+    catch (e) { document.documentElement.style.display = 'none'; }
+  }
+
   /* ---------- theme toggle ---------- */
   var toggle = document.getElementById('theme-toggle');
   if (toggle) {
